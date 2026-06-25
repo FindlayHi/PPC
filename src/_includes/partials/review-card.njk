@@ -1,15 +1,15 @@
 <div class="bg-white rounded-[16px] p-7" style="box-shadow: 0 10px 30px rgba(23,50,77,.05);">
   <div class="flex gap-0.5 mb-4" aria-label="5 out of 5 stars">
-    {% for i in range(0, review.rating) %}
+    {% for i in range(0, testimonial.rating) %}
     <svg width="16" height="16" viewBox="0 0 16 16" fill="#F5A623" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.5l-3.8 2 .7-4.2-3-3 4.2-.6z"/></svg>
     {% endfor %}
   </div>
-  <p class="text-ink text-[15px] leading-relaxed mb-5">&ldquo;{{ review.text }}&rdquo;</p>
+  <p class="text-ink text-[15px] leading-relaxed mb-5">&ldquo;{{ testimonial.text }}&rdquo;</p>
   <div class="flex items-center gap-3">
-    <div class="w-9 h-9 rounded-full bg-teal-tint flex items-center justify-center font-display font-bold text-teal text-[14px]">{{ review.name[0] }}</div>
+    <div class="w-9 h-9 rounded-full bg-teal-tint flex items-center justify-center font-display font-bold text-teal text-[14px]">{{ testimonial.name[0] }}</div>
     <div>
-      <p class="font-semibold text-navy text-[14px] leading-none mb-0.5">{{ review.name }}</p>
-      <p class="text-[#6B7280] text-[13px]">{{ review.location }}</p>
+      <p class="font-semibold text-navy text-[14px] leading-none mb-0.5">{{ testimonial.name }}</p>
+      <p class="text-[#6B7280] text-[13px]">{{ testimonial.location }}</p>
     </div>
   </div>
 </div>

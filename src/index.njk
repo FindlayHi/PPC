@@ -112,10 +112,10 @@ description: "Professional, locally-owned house & condo cleaning in Port Credit,
   </div>
 </section>
 
-{# ── REVIEWS ── #}
-<section id="reviews" class="py-20 bg-surface">
+{# ── TESTIMONIALS ── #}
+<section id="testimonials" class="py-20 bg-surface">
   <div class="max-w-[1180px] mx-auto px-8">
-    <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Reviews</p>
+    <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Testimonials</p>
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-10">
       <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em]">Loved by homeowners across South Mississauga</h2>
       <p class="text-[#4A5568] text-[14.5px] shrink-0">
@@ -123,7 +123,7 @@ description: "Professional, locally-owned house & condo cleaning in Port Credit,
       </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-[22px]">
-      {% for review in reviews %}
+      {% for testimonial in testimonials %}
       {% include "partials/review-card.njk" %}
       {% endfor %}
     </div>

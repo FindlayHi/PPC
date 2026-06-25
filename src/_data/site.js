@@ -11,7 +11,7 @@ export default {
   nav: [
     { label: "Services", href: "/services/" },
     { label: "Why Us", href: "/#why-us" },
-    { label: "Reviews", href: "/#reviews" },
+    { label: "Testimonials", href: "/#testimonials" },
     { label: "Service Area", href: "/#service-area" },
     { label: "About", href: "/about/" },
     { label: "Contact", href: "/contact/" },
