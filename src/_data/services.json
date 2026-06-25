@@ -52,6 +52,8 @@
     "quoteBandH2": "Start your recurring clean",
     "imageLabel": "tidy, sunlit living room",
     "servicesImageLabel": "tidy kitchen counter",
+    "imageFile": "pexels-peter-vang-2157328093-35618203.jpg",
+    "imageAlt": "Clean, bright white kitchen in a Port Credit home",
     "formType": "compact"
   },
   {
@@ -107,6 +109,8 @@
     "quoteBandH2": "Book your deep clean",
     "imageLabel": "sparkling, detailed bathroom",
     "servicesImageLabel": "sparkling bathroom detail",
+    "imageFile": "zac-gudakov-XHZKjlnIJOs-unsplash.jpg",
+    "imageAlt": "Sparkling clean modern kitchen after a deep clean",
     "formType": "compact"
   },
   {
@@ -162,6 +166,8 @@
     "quoteBandH2": "Book your move clean",
     "imageLabel": "empty room with moving boxes",
     "servicesImageLabel": "empty room, moving boxes",
+    "imageFile": "pexels-artbovich-7546548.jpg",
+    "imageAlt": "Clean open-plan home ready for move-in",
     "formType": "compact"
   },
   {
@@ -217,6 +223,8 @@
     "quoteBandH2": "Book your condo clean",
     "imageLabel": "bright condo with lake view",
     "servicesImageLabel": "bright condo with lake view",
+    "imageFile": "pexels-artbovich-6538930.jpg",
+    "imageAlt": "Modern condo living room in Port Credit",
     "formType": "compact"
   },
   {
@@ -272,6 +280,8 @@
     "quoteBandH2": "Set up your turnovers",
     "imageLabel": "fresh linens on a made bed",
     "servicesImageLabel": "fresh linens, made bed",
+    "imageFile": "jason-briscoe-GliaHAJ3_5A-unsplash.jpg",
+    "imageAlt": "Clean, freshly prepared kitchen for Airbnb guests",
     "formType": "compact"
   }
 ]

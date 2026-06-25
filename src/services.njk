@@ -15,6 +15,11 @@ description: "House & condo cleaning services in Port Credit — recurring, deep
       <a href="{{ site.phoneSms }}" class="bg-white/10 hover:bg-white/20 text-white font-semibold text-[15px] px-6 py-3 rounded-[10px] transition-colors duration-150">Text Us</a>
     </div>
   </div>
+  <div class="max-w-[1180px] mx-auto px-8 pb-16 hidden md:block">
+    <div class="rounded-[20px] overflow-hidden w-full" style="height:320px;">
+      <img src="/img/roam-in-color-z3QZ6gjGRt4-unsplash.jpg" alt="Premium clean kitchen with white hex tiles and marble counters" class="w-full h-full object-cover object-center">
+    </div>
+  </div>
 </section>
 
 {# ── SERVICE BLOCKS ── #}
@@ -34,13 +39,13 @@ description: "House & condo cleaning services in Port Credit — recurring, deep
       </div>
       <a href="/services/{{ s.slug }}/" class="text-teal font-semibold text-[15px] hover:underline">Read full details &rarr;</a>
     </div>
-    <div class="bg-surface rounded-[20px] w-full aspect-[4/3] flex items-center justify-center">
-      <p class="font-mono text-[#9CA3AF] text-[13px] text-center px-4">{{ s.servicesImageLabel }}</p>
+    <div class="rounded-[20px] overflow-hidden w-full aspect-[4/3]">
+      <img src="/img/{{ s.imageFile }}" alt="{{ s.imageAlt }}" class="w-full h-full object-cover">
     </div>
     {% else %}
     {# Image left on odd #}
-    <div class="bg-surface rounded-[20px] w-full aspect-[4/3] flex items-center justify-center order-2 md:order-1">
-      <p class="font-mono text-[#9CA3AF] text-[13px] text-center px-4">{{ s.servicesImageLabel }}</p>
+    <div class="rounded-[20px] overflow-hidden w-full aspect-[4/3] order-2 md:order-1">
+      <img src="/img/{{ s.imageFile }}" alt="{{ s.imageAlt }}" class="w-full h-full object-cover">
     </div>
     <div class="order-1 md:order-2">
       <p class="text-teal text-[12px] font-semibold uppercase tracking-[0.13em] mb-3">{{ s.servicesPageEyebrow }}</p>

@@ -31,8 +31,8 @@ eleventyComputed:
         </div>
       </div>
       <div class="hidden md:block">
-        <div class="stripe-panel rounded-[20px] w-full aspect-[4/3] flex items-center justify-center">
-          <p class="font-mono text-[#5A7290] text-[13px] text-center px-6">{{ service.imageLabel }}</p>
+        <div class="rounded-[20px] overflow-hidden w-full aspect-[4/3]">
+          <img src="/img/{{ service.imageFile }}" alt="{{ service.imageAlt }}" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
