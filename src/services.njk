@@ -17,7 +17,7 @@ description: "House & condo cleaning services in Port Credit — recurring, deep
   </div>
   <div class="max-w-[1180px] mx-auto px-8 pb-16 hidden md:block">
     <div class="rounded-[20px] overflow-hidden w-full" style="height:320px;">
-      <img src="/img/roam-in-color-z3QZ6gjGRt4-unsplash.jpg" alt="Premium clean kitchen with white hex tiles and marble counters" class="w-full h-full object-cover object-center">
+      {% image "/img/roam-in-color-z3QZ6gjGRt4-unsplash.jpg", "Premium clean kitchen with white hex tiles and marble counters", "w-full h-full object-cover object-center", "100vw" %}
     </div>
   </div>
 </section>
@@ -40,12 +40,12 @@ description: "House & condo cleaning services in Port Credit — recurring, deep
       <a href="/services/{{ s.slug }}/" class="text-teal font-semibold text-[15px] hover:underline">Read full details &rarr;</a>
     </div>
     <div class="rounded-[20px] overflow-hidden w-full aspect-[4/3]">
-      <img src="/img/{{ s.imageFile }}" alt="{{ s.imageAlt }}" class="w-full h-full object-cover">
+      {% image "/img/" + s.imageFile, s.imageAlt, "w-full h-full object-cover", "(min-width: 768px) 50vw, 100vw" %}
     </div>
     {% else %}
     {# Image left on odd #}
     <div class="rounded-[20px] overflow-hidden w-full aspect-[4/3] order-2 md:order-1">
-      <img src="/img/{{ s.imageFile }}" alt="{{ s.imageAlt }}" class="w-full h-full object-cover">
+      {% image "/img/" + s.imageFile, s.imageAlt, "w-full h-full object-cover", "(min-width: 768px) 50vw, 100vw" %}
     </div>
     <div class="order-1 md:order-2">
       <p class="text-teal text-[12px] font-semibold uppercase tracking-[0.13em] mb-3">{{ s.servicesPageEyebrow }}</p>

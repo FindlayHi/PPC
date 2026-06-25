@@ -32,7 +32,7 @@ eleventyComputed:
       </div>
       <div class="hidden md:block">
         <div class="rounded-[20px] overflow-hidden w-full aspect-[4/3]">
-          <img src="/img/{{ service.imageFile }}" alt="{{ service.imageAlt }}" class="w-full h-full object-cover">
+          {% image "/img/" + service.imageFile, service.imageAlt, "w-full h-full object-cover", "(min-width: 768px) 50vw, 100vw" %}
         </div>
       </div>
     </div>
