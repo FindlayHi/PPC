@@ -1,0 +1,277 @@
+[
+  {
+    "slug": "recurring-cleaning",
+    "eyebrow": "Recurring cleaning · Port Credit",
+    "h1": "Recurring house cleaning in Port Credit",
+    "keyword": "house cleaning Port Credit",
+    "subhead": "Weekly, biweekly and monthly cleaning services for homes and condos across Port Credit and South Mississauga — the same trusted cleaner, every single visit.",
+    "cardTitle": "Recurring Cleaning",
+    "cardDesc": "Weekly or biweekly upkeep that keeps your home effortlessly fresh, all year round.",
+    "servicesPageDesc": "Weekly, biweekly or monthly cleaning that keeps your home consistently fresh. The same trusted cleaner each visit means we learn exactly how you like things done.",
+    "servicesPageEyebrow": "Recurring cleaning · Port Credit",
+    "servicesPageChips": ["Kitchens & baths", "Floors & dusting", "Consistent checklist"],
+    "introH2": "Effortlessly clean, all year round",
+    "intro": [
+      "A recurring cleaning service is the easiest way to keep your Port Credit home consistently fresh without lifting a finger. Whether you need a weekly clean for a busy household or a biweekly refresh for your condo, we build a routine around your schedule — and stick to it.",
+      "Because you get the same local house cleaner every visit, we quickly learn how you like things done. No re-explaining, no rotating crews, no surprises — just a reliable cleaning service Port Credit families trust week after week."
+    ],
+    "ataglance": [
+      "Weekly, biweekly or monthly",
+      "Same cleaner every visit",
+      "Consistent room-by-room checklist",
+      "Eco-friendly products available",
+      "Flexible rescheduling, no lock-in"
+    ],
+    "includesH2": "Every recurring clean covers the essentials",
+    "includes": [
+      { "heading": "Kitchens", "detail": "Counters, sinks, exterior of appliances, stovetop." },
+      { "heading": "Bathrooms", "detail": "Toilets, showers, tubs, mirrors and fixtures." },
+      { "heading": "Floors", "detail": "Vacuuming and mopping throughout the home." },
+      { "heading": "Dusting", "detail": "Surfaces, shelves, sills and reachable fixtures." },
+      { "heading": "Living areas", "detail": "Tidying, surfaces and high-touch points." },
+      { "heading": "Bedrooms", "detail": "Make beds, tidy and dust on request." }
+    ],
+    "includesNote": "Need extras like inside the oven, fridge or windows? Just add them to any visit.",
+    "whoForH2": "Perfect for busy Port Credit households",
+    "whoFor": [
+      { "title": "Dual-income families", "desc": "Reclaim your weekends and come home to a consistently clean house." },
+      { "title": "Busy professionals", "desc": "Low-effort booking and a cleaner who shows up like clockwork." },
+      { "title": "Retirees & downsizers", "desc": "Dependable, friendly help to keep your home effortless to maintain." }
+    ],
+    "whyLocalH2": "A house cleaner near you, who knows the neighbourhood",
+    "whyLocal": [
+      "Searching for regular 'house cleaning Port Credit' or a dependable 'house cleaner near me'? We're locally owned and based right here on the lakeshore, serving homes and condos throughout South Mississauga.",
+      "That local focus means flexible scheduling, quick replies, and a familiar face you can rely on for the long term."
+    ],
+    "faqH2": "Recurring cleaning, answered",
+    "faq": [
+      { "q": "How often should I book a recurring clean?", "a": "Most Port Credit homes do best with weekly or biweekly visits, but we'll recommend a cadence based on your household, pets and lifestyle." },
+      { "q": "Will I get the same cleaner every time?", "a": "Yes. As an owner-operated cleaning service, you get the same familiar, trusted cleaner at every visit." },
+      { "q": "Can I skip or reschedule a visit?", "a": "Absolutely — there's no lock-in. Just give us a heads-up and we'll adjust your schedule around your plans." }
+    ],
+    "quoteBandH2": "Start your recurring clean",
+    "imageLabel": "tidy, sunlit living room",
+    "servicesImageLabel": "tidy kitchen counter",
+    "formType": "compact"
+  },
+  {
+    "slug": "deep-cleaning",
+    "eyebrow": "Deep cleaning · Port Credit",
+    "h1": "Deep cleaning in Port Credit",
+    "keyword": "deep cleaning Port Credit",
+    "subhead": "Detailed, top-to-bottom deep cleaning for homes and condos throughout Port Credit and South Mississauga — perfect for spring resets, special occasions or a fresh start.",
+    "cardTitle": "Deep Cleaning",
+    "cardDesc": "A top-to-bottom reset — baseboards, behind appliances, grout and every detail.",
+    "servicesPageDesc": "A thorough top-to-bottom reset for homes that need extra care. We get into the places everyday cleaning misses — baseboards, behind appliances, grout, vents and more.",
+    "servicesPageEyebrow": "Deep cleaning · Port Credit",
+    "servicesPageChips": ["Baseboards & trim", "Behind appliances", "Grout & tile"],
+    "introH2": "A thorough, top-to-bottom reset",
+    "intro": [
+      "A deep clean goes well beyond the everyday. It's a meticulous, top-to-bottom service that tackles the build-up regular cleaning leaves behind — ideal as a one-time refresh, a seasonal reset, or your very first clean with us.",
+      "From baseboards and grout to the inside of your oven and behind appliances, we get into every detail. It's the deep cleaning Port Credit homeowners book before guests arrive, before a move, or simply when their home deserves extra care."
+    ],
+    "ataglance": [
+      "One-time, seasonal or first clean",
+      "Same cleaner every visit",
+      "Baseboards, grout & behind appliances",
+      "Eco-friendly products available",
+      "Perfect before guests or a sale"
+    ],
+    "includesH2": "Every deep clean reaches what others miss",
+    "includes": [
+      { "heading": "Inside oven & fridge", "detail": "Degrease the oven and wipe out the fridge and microwave." },
+      { "heading": "Grout & tile", "detail": "Scrub tile, grout, glass and built-up soap scum." },
+      { "heading": "Baseboards & trim", "detail": "Hand-wiped baseboards, trim, door frames and ledges." },
+      { "heading": "Vents & fixtures", "detail": "Dust vents, fans, light fixtures and high corners." },
+      { "heading": "Behind & under", "detail": "Clean behind and beneath reachable furniture." },
+      { "heading": "Doors & switches", "detail": "Spot-clean doors, handles, switches and wall marks." }
+    ],
+    "includesNote": "Deep cleans are a one-time visit and make the ideal first clean before starting recurring service.",
+    "whoForH2": "Ideal when your home needs extra care",
+    "whoFor": [
+      { "title": "Before guests arrive", "desc": "Get every corner guest-ready before the holidays or a party." },
+      { "title": "Spring & seasonal resets", "desc": "A fresh start when your home needs more than routine upkeep." },
+      { "title": "Before recurring service", "desc": "The perfect baseline clean before starting a regular schedule." }
+    ],
+    "whyLocalH2": "Deep cleaning Port Credit homeowners trust",
+    "whyLocal": [
+      "Searching for 'deep cleaning Port Credit' or a thorough 'house cleaner near me'? We're locally owned and based on the lakeshore, bringing meticulous deep cleans to homes and condos across South Mississauga.",
+      "Every deep clean is done personally, with the same care and attention whether it's a one-time refresh or a pre-move reset."
+    ],
+    "faqH2": "Deep cleaning, answered",
+    "faq": [
+      { "q": "How is a deep clean different from a regular clean?", "a": "A deep clean covers everything a standard clean does, plus detailed areas like baseboards, grout, inside appliances and behind furniture." },
+      { "q": "How long does a deep clean take?", "a": "It depends on the size and condition of your home — we'll give you a clear time and price estimate with your free quote." },
+      { "q": "Should I deep clean before starting recurring service?", "a": "We usually recommend it. A deep clean creates a clean baseline so your recurring visits stay efficient and consistent." }
+    ],
+    "quoteBandH2": "Book your deep clean",
+    "imageLabel": "sparkling, detailed bathroom",
+    "servicesImageLabel": "sparkling bathroom detail",
+    "formType": "compact"
+  },
+  {
+    "slug": "move-in-move-out-cleaning",
+    "eyebrow": "Move out cleaning · Port Credit",
+    "h1": "Move in & move out cleaning in Port Credit",
+    "keyword": "move out cleaning Port Credit",
+    "subhead": "Move-out and move-in cleaning that leaves your home spotless — for tenants, owners and landlords across Port Credit and South Mississauga.",
+    "cardTitle": "Move In / Move Out",
+    "cardDesc": "Hand over the keys spotless, or start fresh in a place that feels brand new.",
+    "servicesPageDesc": "Hand over the keys spotless or settle into a place that feels brand new. Ideal for tenants, landlords and anyone selling — inside cabinets, appliances and every corner included.",
+    "servicesPageEyebrow": "Move out cleaning · Port Credit",
+    "servicesPageChips": ["Inside cabinets", "Appliance interiors", "Walls & fixtures"],
+    "introH2": "Hand over the keys spotless",
+    "intro": [
+      "Moving is stressful enough. A move-out clean makes sure you leave the property immaculate — protecting your deposit and impressing the next owner — while a move-in clean gives you a fresh, sanitised start before you unpack a single box.",
+      "We clean inside cabinets, appliances and every corner usually hidden by furniture. It's the move-out cleaning Port Credit tenants, landlords and realtors rely on for a smooth, no-stress handover."
+    ],
+    "ataglance": [
+      "One-time move-in or move-out",
+      "Empty-home, every-corner clean",
+      "Inside cabinets, drawers & closets",
+      "Eco-friendly products available",
+      "Realtor & landlord friendly"
+    ],
+    "includesH2": "Every move clean leaves nothing behind",
+    "includes": [
+      { "heading": "Inside cabinets", "detail": "Wiped inside and out — cabinets, drawers and pantry." },
+      { "heading": "Appliance interiors", "detail": "Inside the oven, fridge, microwave and dishwasher." },
+      { "heading": "Full floors", "detail": "Vacuum and mop every room, including closets." },
+      { "heading": "Walls & marks", "detail": "Spot-clean walls, baseboards, doors and switch plates." },
+      { "heading": "Fixtures & vents", "detail": "Dust light fixtures, vents, fans and window sills." },
+      { "heading": "Closets & storage", "detail": "Empty closets and storage wiped down and ready." }
+    ],
+    "includesNote": "Selling or handing back a rental? We can match common landlord and realtor move-out checklists.",
+    "whoForH2": "Made for moves of every kind",
+    "whoFor": [
+      { "title": "Tenants", "desc": "Protect your deposit with a spotless move-out clean." },
+      { "title": "Homeowners & sellers", "desc": "Hand over a home that shows beautifully to buyers." },
+      { "title": "Landlords & realtors", "desc": "Fast, reliable turnovers between tenants and listings." }
+    ],
+    "whyLocalH2": "Move out cleaning Port Credit trusts",
+    "whyLocal": [
+      "Searching for 'move out cleaning Port Credit' or a reliable 'house cleaner near me' before a move? We're locally owned and based on the lakeshore, helping tenants, owners and landlords across South Mississauga hand over spotless homes.",
+      "We work around closing dates and key handovers, with flexible scheduling and quick replies when timing matters most."
+    ],
+    "faqH2": "Move cleaning, answered",
+    "faq": [
+      { "q": "What's included in a move-out clean?", "a": "Everything in a deep clean, plus inside all cabinets, drawers, closets and appliances — the areas inspectors and buyers always check." },
+      { "q": "Do you clean empty or furnished homes?", "a": "Both. Move cleans are easiest in an empty home, but we can work around remaining furniture and boxes too." },
+      { "q": "Can you match my landlord's checklist?", "a": "Yes — send us any move-out or realtor checklist and we'll make sure every item is covered." }
+    ],
+    "quoteBandH2": "Book your move clean",
+    "imageLabel": "empty room with moving boxes",
+    "servicesImageLabel": "empty room, moving boxes",
+    "formType": "compact"
+  },
+  {
+    "slug": "condo-cleaning",
+    "eyebrow": "Condo cleaning · Port Credit",
+    "h1": "Condo cleaning in Port Credit",
+    "keyword": "condo cleaning Port Credit",
+    "subhead": "Reliable condo and apartment cleaning tailored to Port Credit's lakeshore buildings — efficient, quiet and respectful of your space.",
+    "cardTitle": "Condo Cleaning",
+    "cardDesc": "Tailored for Port Credit condos — efficient, quiet and respectful of your building.",
+    "servicesPageDesc": "Designed for Port Credit's condos and apartments — efficient, quiet and respectful of your building's rules and your neighbours. Perfect for busy professionals and downsizers.",
+    "servicesPageEyebrow": "Condo cleaning · Port Credit",
+    "servicesPageChips": ["Open-concept living", "Balcony glass", "Building-friendly"],
+    "introH2": "Cleaning built for condo living",
+    "intro": [
+      "Condos have their own rhythm — shared elevators, tighter footprints and building rules to respect. We tailor every visit to make the most of your space, working efficiently and quietly so you and your neighbours barely notice we're there.",
+      "From open-concept living to balcony glass and in-suite laundry, we know what Port Credit condos need. It's dependable condo cleaning from a local you'll recognise at the door, visit after visit."
+    ],
+    "ataglance": [
+      "Weekly, biweekly or one-time",
+      "Same cleaner every visit",
+      "Efficient, small-space focused",
+      "Eco-friendly products available",
+      "Quiet & building-respectful"
+    ],
+    "includesH2": "Everything your condo needs",
+    "includes": [
+      { "heading": "Kitchen & island", "detail": "Counters, sink, stovetop and exterior of appliances." },
+      { "heading": "Bathrooms & ensuite", "detail": "Toilets, glass showers, mirrors and fixtures." },
+      { "heading": "Floors", "detail": "Vacuum and mop hardwood, tile and area rugs." },
+      { "heading": "Dusting", "detail": "Surfaces, shelves, sills and reachable fixtures." },
+      { "heading": "Open-concept living", "detail": "Tidy and wipe down your main living and dining space." },
+      { "heading": "Balcony glass", "detail": "Wipe down balcony doors and reachable glass." }
+    ],
+    "includesNote": "Living in a Port Credit high-rise? We're familiar with building access, parking and elevator etiquette.",
+    "whoForH2": "Made for Port Credit condo life",
+    "whoFor": [
+      { "title": "Condo owners", "desc": "Keep your suite effortlessly clean between busy weeks." },
+      { "title": "Young professionals", "desc": "Low-effort booking that fits a packed schedule." },
+      { "title": "Downsizers", "desc": "Friendly, dependable help in your new lakeside home." }
+    ],
+    "whyLocalH2": "Condo cleaning Port Credit residents trust",
+    "whyLocal": [
+      "Searching for 'condo cleaning Port Credit' or a tidy 'house cleaner near me' for your suite? We're locally owned and based on the lakeshore, cleaning condos and apartments throughout South Mississauga.",
+      "Because we're local, we know the buildings, the parking and the pace — and we show up reliably, the same friendly face each time."
+    ],
+    "faqH2": "Condo cleaning, answered",
+    "faq": [
+      { "q": "Do you clean small condos and studios?", "a": "Absolutely. We tailor each visit to your suite's size, so you only pay for the space you have." },
+      { "q": "Are you familiar with building rules?", "a": "Yes — we're used to signing in, elevator booking and parking, and we keep things quiet for your neighbours." },
+      { "q": "Can I book a one-time condo clean?", "a": "Of course. Book a single visit or set up a recurring schedule — whatever suits your suite." }
+    ],
+    "quoteBandH2": "Book your condo clean",
+    "imageLabel": "bright condo with lake view",
+    "servicesImageLabel": "bright condo with lake view",
+    "formType": "compact"
+  },
+  {
+    "slug": "airbnb-turnovers",
+    "eyebrow": "Airbnb turnovers · Port Credit",
+    "h1": "Airbnb cleaning & turnovers in Port Credit",
+    "keyword": "Airbnb cleaning Port Credit",
+    "subhead": "Fast, five-star turnover cleaning for short-term rentals across Port Credit and South Mississauga — fresh for every guest, every time.",
+    "cardTitle": "Airbnb Turnovers",
+    "cardDesc": "Fast, reliable turnovers with fresh linens and a 5-star-ready finish between guests.",
+    "servicesPageDesc": "Fast, reliable turnovers that keep your reviews at five stars. Fresh linens, restocked essentials and a guest-ready finish between every booking — on your timeline.",
+    "servicesPageEyebrow": "Airbnb turnovers · Port Credit",
+    "servicesPageChips": ["Linen changes", "Restock essentials", "Same-day turnaround"],
+    "introH2": "Five-star turnovers, every booking",
+    "intro": [
+      "Great reviews start with a spotless space. We handle reliable, on-time turnovers between guests — fresh linens, restocked essentials and a hotel-clean finish — so your Port Credit rental is always ready for the next check-in.",
+      "As your local turnover cleaner, we work around check-in and check-out windows and flag anything left behind or in need of attention. It's the dependable Airbnb cleaning Port Credit hosts count on to protect their ratings."
+    ],
+    "ataglance": [
+      "Per-booking turnovers",
+      "Reliable same-day turnaround",
+      "Fresh linens & towels",
+      "Eco-friendly products available",
+      "Restocked guest essentials"
+    ],
+    "includesH2": "Everything a great turnover needs",
+    "includes": [
+      { "heading": "Linen changes", "detail": "Strip, wash or swap bed linens and towels." },
+      { "heading": "Bathrooms reset", "detail": "Sanitise toilets, showers, mirrors and surfaces." },
+      { "heading": "Floors", "detail": "Vacuum and mop throughout for a fresh feel." },
+      { "heading": "Restock essentials", "detail": "Top up toiletries, paper goods and welcome items." },
+      { "heading": "Reset the space", "detail": "Tidy, stage and return everything to guest-ready." },
+      { "heading": "Damage check", "detail": "Flag spills, damage or items left behind by guests." }
+    ],
+    "includesNote": "Hosting multiple listings? We can coordinate recurring turnovers around your booking calendar.",
+    "whoForH2": "Made for Port Credit hosts",
+    "whoFor": [
+      { "title": "Airbnb hosts", "desc": "Keep your reviews at five stars with spotless turnovers." },
+      { "title": "Property managers", "desc": "Reliable cleaning across multiple short-term units." },
+      { "title": "Remote owners", "desc": "Trusted local eyes on your rental between guests." }
+    ],
+    "whyLocalH2": "Airbnb cleaning Port Credit hosts rely on",
+    "whyLocal": [
+      "Searching for 'Airbnb cleaning Port Credit' or a dependable 'house cleaner near me' for turnovers? We're locally owned and based on the lakeshore, servicing short-term rentals across South Mississauga.",
+      "Local means fast response and tight turnarounds — we're nearby when a same-day check-in needs a spotless space."
+    ],
+    "faqH2": "Turnovers, answered",
+    "faq": [
+      { "q": "How quickly can you turn over a unit?", "a": "We specialise in same-day turnovers between check-out and check-in — just share your booking windows and we'll fit them." },
+      { "q": "Do you handle linens and restocking?", "a": "Yes. We can change linens, launder on-site or swap fresh sets, and restock the guest essentials you provide." },
+      { "q": "Can you let me know about damage?", "a": "Always. We'll flag anything left behind, broken or in need of attention so you can act before the next guest." }
+    ],
+    "quoteBandH2": "Set up your turnovers",
+    "imageLabel": "fresh linens on a made bed",
+    "servicesImageLabel": "fresh linens, made bed",
+    "formType": "compact"
+  }
+]

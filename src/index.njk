@@ -1,0 +1,186 @@
+---
+layout: layouts/base.njk
+title: "House Cleaning in Port Credit | Port Credit Cleaners"
+description: "Professional, locally-owned house & condo cleaning in Port Credit, Mississauga. Recurring, deep, move-in/out, condo & Airbnb. Book online or call (905) 555-0199."
+---
+
+{# ── HERO ── #}
+<section class="bg-navy overflow-hidden">
+  <div class="max-w-[1180px] mx-auto px-8 py-[74px] grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-sand text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-4">House &amp; condo cleaning &middot; South Mississauga</p>
+      <h1 class="font-display font-extrabold text-white leading-[1.06] tracking-[-0.022em] text-[48px] md:text-[56px] mb-5">Professional house cleaning in Port Credit</h1>
+      <p class="text-[#A8BDD0] text-[18px] leading-relaxed mb-8">Reliable cleaning services for homes and condos throughout Port Credit and South Mississauga.</p>
+      <div class="flex flex-wrap gap-3 mb-10">
+        <a href="#quote" class="bg-teal hover:bg-teal-hover text-white font-semibold text-[15px] px-6 py-3 rounded-[10px] transition-colors duration-150">Get a Free Quote</a>
+        <a href="{{ site.phoneSms }}" class="bg-white/10 hover:bg-white/20 text-white font-semibold text-[15px] px-6 py-3 rounded-[10px] transition-colors duration-150">Text Us</a>
+      </div>
+      <div class="flex flex-wrap gap-6 text-[13.5px] text-[#8DA0B4]">
+        <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="#F5A623" aria-hidden="true"><path d="M7 1l1.3 2.7 3 .4-2.2 2.1.5 3-2.6-1.4L4.4 9.2l.5-3L2.7 4.1l3-.4z"/></svg>
+          <strong class="text-white font-semibold">5.0</strong> &middot; 200+ local homes
+        </span>
+        <span>Fully insured &amp; vetted</span>
+        <span>Satisfaction guaranteed</span>
+      </div>
+    </div>
+    <div class="hidden md:block">
+      <div class="stripe-panel rounded-[20px] w-full aspect-[4/3] flex items-center justify-center">
+        <p class="font-mono text-[#5A7290] text-[13px] text-center px-6">bright modern condo interior</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ── TRUST STRIP ── #}
+<section class="bg-sand">
+  <div class="max-w-[1180px] mx-auto px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <p class="font-display font-bold text-navy text-[16px] mb-1">Locally Owned</p>
+      <p class="text-[#5C4E3A] text-[14.5px] leading-relaxed">Run by your neighbours in Port Credit — not a faceless franchise.</p>
+    </div>
+    <div>
+      <p class="font-display font-bold text-navy text-[16px] mb-1">Consistent Quality</p>
+      <p class="text-[#5C4E3A] text-[14.5px] leading-relaxed">The same trusted cleaner every visit, with a detailed checklist.</p>
+    </div>
+    <div>
+      <p class="font-display font-bold text-navy text-[16px] mb-1">Flexible Scheduling</p>
+      <p class="text-[#5C4E3A] text-[14.5px] leading-relaxed">Weekly, biweekly, monthly or one-time — around your routine.</p>
+    </div>
+  </div>
+</section>
+
+{# ── SERVICES GRID ── #}
+<section class="py-20 bg-surface">
+  <div class="max-w-[1180px] mx-auto px-8">
+    <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">What we clean</p>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+      <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em] max-w-[480px]">Cleaning services for every kind of home</h2>
+      <a href="/services/" class="text-teal font-semibold text-[14.5px] hover:underline shrink-0">View all services &rarr;</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px]">
+      {% for s in services %}
+      {% set card = s %}
+      {% include "partials/service-card.njk" %}
+      {% endfor %}
+      {# CTA tile #}
+      <div class="bg-navy rounded-[16px] p-6 flex flex-col justify-between" style="box-shadow: 0 10px 30px rgba(23,50,77,.05);">
+        <div>
+          <p class="font-display font-bold text-white text-[18px] mb-2 leading-snug">Not sure what you need?</p>
+          <p class="text-[#A8BDD0] text-[14.5px] leading-relaxed mb-6">Tell us about your home and we'll recommend the right clean — with honest pricing.</p>
+        </div>
+        <a href="#quote" class="bg-teal hover:bg-teal-hover text-white font-semibold text-[14px] px-5 py-2.5 rounded-[10px] text-center transition-colors duration-150 self-start">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ── WHY CHOOSE US ── #}
+<section id="why-us" class="py-20 bg-white">
+  <div class="max-w-[1180px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+    <div class="relative">
+      <div class="bg-surface rounded-[20px] w-full aspect-[4/3] flex items-center justify-center">
+        <p class="font-mono text-[#9CA3AF] text-[13px]">owner cleaning a bright kitchen</p>
+      </div>
+      <div class="absolute -bottom-5 -right-5 bg-navy rounded-[16px] px-6 py-4" style="box-shadow: 0 16px 38px rgba(23,50,77,.14);">
+        <p class="font-display font-extrabold text-teal text-[32px] leading-none">8 yrs</p>
+        <p class="text-[#8DA0B4] text-[13px] mt-0.5">cleaning Port Credit homes</p>
+      </div>
+    </div>
+    <div>
+      <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Why choose us</p>
+      <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em] mb-4">A cleaner who actually knows your home</h2>
+      <p class="text-[#4A5568] text-[17px] leading-relaxed mb-7">No rotating crews, no surprises. Just dependable, detailed cleaning from someone who treats your home like their own.</p>
+      <ul class="space-y-3.5">
+        {% set checks = [
+          ["Owner-operated.", "You deal directly with the person doing the work."],
+          ["Attention to detail.", "A consistent checklist so nothing gets missed."],
+          ["Eco-friendly products available.", "Safe for kids, pets and sensitive homes."],
+          ["Flexible scheduling.", "Easy to book, easy to reschedule when life happens."],
+          ["Friendly & professional.", "Punctual, respectful and easy to reach."]
+        ] %}
+        {% for check in checks %}
+        <li class="flex items-start gap-3">
+          <span class="shrink-0 w-5 h-5 rounded-full bg-teal flex items-center justify-center mt-0.5">
+            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 3.5 6.5 9 1"/></svg>
+          </span>
+          <p class="text-[15px] text-ink leading-relaxed"><strong class="font-semibold">{{ check[0] }}</strong> {{ check[1] }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{# ── REVIEWS ── #}
+<section id="reviews" class="py-20 bg-surface">
+  <div class="max-w-[1180px] mx-auto px-8">
+    <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Reviews</p>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-10">
+      <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em]">Loved by homeowners across South Mississauga</h2>
+      <p class="text-[#4A5568] text-[14.5px] shrink-0">
+        <span class="text-[#F5A623]">★★★★★</span> <strong class="text-navy">5.0</strong> average &middot; 200+ cleans
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-[22px]">
+      {% for review in reviews %}
+      {% include "partials/review-card.njk" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── SERVICE AREA ── #}
+<section id="service-area" class="py-20 bg-white">
+  <div class="max-w-[1180px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+    <div>
+      <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Service area</p>
+      <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em] mb-4">Proudly serving Port Credit &amp; South Mississauga</h2>
+      <p class="text-[#4A5568] text-[17px] leading-relaxed mb-6">Looking for a trusted house cleaner near you? We clean homes, condos and rentals throughout the Port Credit lakeshore and surrounding neighbourhoods.</p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        {% for n in site.neighborhoods %}
+        <span class="bg-teal-tint text-teal font-semibold text-[13px] px-3.5 py-1.5 rounded-full">{{ n }}</span>
+        {% endfor %}
+      </div>
+      <a href="#quote" class="text-teal font-semibold text-[15px] hover:underline">Check my neighbourhood &rarr;</a>
+    </div>
+    <div class="bg-surface rounded-[20px] w-full aspect-[4/3] flex items-center justify-center">
+      <p class="font-mono text-[#9CA3AF] text-[13px]">embed interactive Google map here</p>
+    </div>
+  </div>
+</section>
+
+{# ── QUOTE FORM ── #}
+<section class="py-20 bg-surface">
+  <div class="max-w-[1180px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-14">
+    <div>
+      <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Free quote</p>
+      <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em] mb-4">Get your free quote in 2 minutes</h2>
+      <p class="text-[#4A5568] text-[17px] leading-relaxed mb-8">Tell us a little about your home and we'll get back to you the same day with honest, upfront pricing.</p>
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-teal-tint rounded-[12px] flex items-center justify-center shrink-0">
+            <svg width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#5AA7A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          </div>
+          <div>
+            <p class="text-[12.5px] font-semibold uppercase tracking-[0.1em] text-[#6B7280]">Call or text</p>
+            <a href="{{ site.phoneTel }}" class="text-navy font-semibold text-[15px] hover:text-teal transition-colors duration-150">{{ site.phone }}</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-teal-tint rounded-[12px] flex items-center justify-center shrink-0">
+            <svg width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#5AA7A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <p class="text-[12.5px] font-semibold uppercase tracking-[0.1em] text-[#6B7280]">Email</p>
+            <a href="mailto:{{ site.email }}" class="text-navy font-semibold text-[15px] hover:text-teal transition-colors duration-150">{{ site.email }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-[20px] p-8" style="box-shadow: 0 10px 30px rgba(23,50,77,.05);">
+      {% set formType = "full" %}
+      {% include "partials/quote-form.njk" %}
+    </div>
+  </div>
+</section>

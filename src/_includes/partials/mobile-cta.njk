@@ -1,0 +1,16 @@
+<div class="fixed bottom-0 left-0 right-0 md:hidden bg-navy z-40" style="box-shadow: 0 -6px 20px rgba(0,0,0,.18);">
+  <div class="flex gap-3 px-4 py-3">
+    <a href="{{ site.phoneTel }}" class="flex-1 bg-white/15 hover:bg-white/25 text-white font-semibold text-[14px] py-3 rounded-[10px] text-center transition-colors duration-150">
+      Call
+    </a>
+    {% if mobileCta == "message" %}
+    <a href="#contact-form" class="flex-1 bg-teal hover:bg-teal-hover text-white font-semibold text-[14px] py-3 rounded-[10px] text-center transition-colors duration-150">
+      Send a Message
+    </a>
+    {% else %}
+    <a href="/#quote" class="flex-1 bg-teal hover:bg-teal-hover text-white font-semibold text-[14px] py-3 rounded-[10px] text-center transition-colors duration-150">
+      Get a Free Quote
+    </a>
+    {% endif %}
+  </div>
+</div>

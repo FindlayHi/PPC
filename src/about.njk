@@ -1,0 +1,79 @@
+---
+layout: layouts/base.njk
+title: "About | Port Credit Cleaners"
+description: "Port Credit Cleaners is a locally-owned, owner-operated cleaning service run by Sof. Serving Port Credit and South Mississauga with honest, dependable house cleaning."
+---
+
+{# ── HERO ── #}
+<section class="bg-navy py-16 md:py-20">
+  <div class="max-w-[1180px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-sand text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-4">About us</p>
+      <h1 class="font-display font-extrabold text-white text-[42px] md:text-[48px] leading-[1.07] tracking-[-0.022em] mb-5">Hi, I'm Sof — your local Port Credit cleaner</h1>
+      <p class="text-[#A8BDD0] text-[18px] leading-relaxed">Port Credit Cleaners is a small, owner-operated business built on a simple idea: dependable cleaning from someone who genuinely cares about your home.</p>
+    </div>
+    <div class="bg-navy-panel rounded-[20px] w-full aspect-square max-w-[380px] mx-auto md:mx-0 flex items-center justify-center">
+      <p class="font-mono text-[#5A7290] text-[13px]">friendly portrait of owner</p>
+    </div>
+  </div>
+</section>
+
+{# ── STORY ── #}
+<section class="py-20 bg-white">
+  <div class="max-w-[840px] mx-auto px-8">
+    <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Our story</p>
+    <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em] mb-8">Local roots, and a higher standard of clean</h2>
+    <div class="space-y-5 text-[17px] text-[#4A5568] leading-[1.7]">
+      <p>I started Port Credit Cleaners after years of hearing the same frustration from friends and neighbours: cleaning companies that sent a different crew every visit, missed the details, and were impossible to reach. I knew there was a better way to do this — personally.</p>
+      <p>Living and working right here along the Port Credit lakeshore, I get to know each home and the people in it. That means a consistent clean, a familiar face at the door, and a relationship built on trust — not a call centre and a rotating roster.</p>
+      <p>Whether it's a weekly tidy for a busy family, a deep clean before guests arrive, or a move-out reset, my commitment is the same: show up on time, pay attention to the details, and leave your home feeling genuinely cared for.</p>
+    </div>
+  </div>
+</section>
+
+{# ── VALUES ── #}
+<section class="py-16 bg-surface">
+  <div class="max-w-[1180px] mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-7">
+    {% set values = [
+      ["Locally rooted", "Born and based in Port Credit. Your community is my community."],
+      ["Detail-obsessed", "A consistent checklist every visit, so nothing slips through the cracks."],
+      ["Always reliable", "On time, every time — and easy to reach when plans change."]
+    ] %}
+    {% for v in values %}
+    <div class="bg-white rounded-[16px] p-7" style="box-shadow: 0 10px 30px rgba(23,50,77,.05);">
+      <div class="w-11 h-11 bg-teal-tint rounded-[12px] flex items-center justify-center mb-4">
+        <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#5AA7A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="9"/>
+          <polyline points="9 11 11 13 15 9"/>
+        </svg>
+      </div>
+      <h3 class="font-display font-bold text-navy text-[18px] mb-2">{{ v[0] }}</h3>
+      <p class="text-[#4A5568] text-[15px] leading-relaxed">{{ v[1] }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{# ── COMPACT QUOTE BAND ── #}
+<section class="py-16 bg-navy">
+  <div class="max-w-[1180px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <div>
+      <p class="text-sand text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Free quote</p>
+      <h2 class="font-display font-extrabold text-white text-[32px] leading-[1.1] tracking-[-0.022em] mb-4">Let's get your home on the schedule</h2>
+      <p class="text-[#A8BDD0] text-[17px] leading-relaxed mb-6">Send a few details and I'll personally get back to you the same day with honest pricing.</p>
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-white/10 rounded-[10px] flex items-center justify-center shrink-0">
+          <svg width="16" height="16" viewBox="0 0 22 22" fill="none" stroke="#5AA7A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        </div>
+        <div>
+          <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#5A7290]">Call or text</p>
+          <a href="{{ site.phoneTel }}" class="text-white font-semibold text-[15px] hover:text-teal transition-colors duration-150">{{ site.phone }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-[16px] p-7">
+      {% set formType = "compact" %}
+      {% include "partials/quote-form.njk" %}
+    </div>
+  </div>
+</section>

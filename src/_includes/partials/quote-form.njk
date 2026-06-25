@@ -1,0 +1,93 @@
+{% if formType == "full" %}
+<form id="quote" action="/api/lead" method="POST" data-form="quote" class="space-y-4" novalidate>
+  <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label for="q-name" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Name <span class="text-red-500">*</span></label>
+      <input type="text" id="q-name" name="name" required placeholder="Your name" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+    </div>
+    <div>
+      <label for="q-phone" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Phone</label>
+      <input type="tel" id="q-phone" name="phone" placeholder="(905) 000-0000" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+    </div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label for="q-email" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Email</label>
+      <input type="email" id="q-email" name="email" placeholder="you@email.com" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+    </div>
+    <div>
+      <label for="q-address" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Address</label>
+      <input type="text" id="q-address" name="address" placeholder="Street & neighbourhood" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+    </div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label for="q-type" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Type of cleaning</label>
+      <select id="q-type" name="cleaning_type" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+        <option value="">Select…</option>
+        <option value="recurring">Recurring cleaning</option>
+        <option value="deep">Deep cleaning</option>
+        <option value="move">Move in / move out</option>
+        <option value="condo">Condo cleaning</option>
+        <option value="airbnb">Airbnb turnover</option>
+      </select>
+    </div>
+    <div>
+      <label for="q-size" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Property size</label>
+      <select id="q-size" name="property_size" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+        <option value="">Select…</option>
+        <option value="1bed1bath">1 bed / 1 bath</option>
+        <option value="2bed2bath">2 bed / 2 bath</option>
+        <option value="3bed2bath">3 bed / 2+ bath</option>
+        <option value="4bed">4+ bedrooms</option>
+        <option value="studio">Condo / studio</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <label for="q-date" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Preferred date</label>
+    <input type="date" id="q-date" name="preferred_date" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+  </div>
+  <div>
+    <label for="q-notes" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Additional notes</label>
+    <textarea id="q-notes" name="notes" rows="3" placeholder="Pets, parking, areas to focus on…" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] resize-none focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'"></textarea>
+  </div>
+  <div>
+    <button type="submit" class="w-full bg-navy hover:bg-[#0F2536] text-white font-semibold text-[15px] py-3.5 rounded-[10px] transition-colors duration-150">Get My Free Quote</button>
+    <p class="text-center text-[13px] text-[#6B7280] mt-2.5">No obligation &middot; We reply the same day</p>
+  </div>
+  <div class="form-error hidden text-red-600 text-[14px] font-medium text-center" role="alert"></div>
+</form>
+
+{% else %}
+{# Compact form #}
+<form action="/api/lead" method="POST" data-form="quote-compact" class="space-y-3.5" novalidate>
+  <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div>
+    <label for="c-name" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Name <span class="text-red-500">*</span></label>
+    <input type="text" id="c-name" name="name" required placeholder="Your name" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+  </div>
+  <div>
+    <label for="c-contact" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Phone or email <span class="text-red-500">*</span></label>
+    <input type="text" id="c-contact" name="contact" required placeholder="(905) 000-0000 or you@email.com" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+  </div>
+  <div>
+    <label for="c-type" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Type of cleaning</label>
+    <select id="c-type" name="cleaning_type" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
+      <option value="">Select…</option>
+      <option value="recurring">Recurring cleaning</option>
+      <option value="deep">Deep cleaning</option>
+      <option value="move">Move in / move out</option>
+      <option value="condo">Condo cleaning</option>
+      <option value="airbnb">Airbnb turnover</option>
+    </select>
+  </div>
+  <div>
+    <label for="c-notes" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Notes</label>
+    <textarea id="c-notes" name="notes" rows="2" placeholder="Address, property size, preferred date…" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] resize-none focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'"></textarea>
+  </div>
+  <button type="submit" class="w-full bg-teal hover:bg-teal-hover text-white font-semibold text-[15px] py-3.5 rounded-[10px] transition-colors duration-150">Get My Free Quote</button>
+  <div class="form-error hidden text-red-600 text-[14px] font-medium text-center" role="alert"></div>
+</form>
+{% endif %}
