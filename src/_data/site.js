@@ -21,4 +21,6 @@ export default {
     instagram: "#",
     google: "#",
   },
+  supabaseUrl: "REPLACE_ME",
+  supabaseAnonKey: "REPLACE_ME",
 };

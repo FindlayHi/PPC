@@ -29,6 +29,12 @@
     {{ content | safe }}
     {% include "partials/footer.njk" %}
     {% include "partials/mobile-cta.njk" %}
+    <script>
+      window.PCC_CONFIG = {
+        supabaseUrl: {{ site.supabaseUrl | dump | safe }},
+        supabaseAnonKey: {{ site.supabaseAnonKey | dump | safe }}
+      };
+    </script>
     <script src="/js/main.js" defer></script>
   </body>
 </html>
