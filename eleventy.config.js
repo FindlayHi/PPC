@@ -24,7 +24,6 @@ async function imageShortcode(src, alt, cls = "w-full h-full object-cover", size
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
-  eleventyConfig.addPassthroughCopy("src/tools");
 
   eleventyConfig.addWatchTarget("_site/css/styles.css");
 
