@@ -1,11 +1,10 @@
 export default {
-  name: "Port Credit Cleaners",
-  url: "https://www.portcreditcleaning.com",
-  phone: "(905) 555-0199",
-  phoneTel: "tel:+19055550199",
-  phoneSms: "sms:+19055550199",
-  email: "hello@portcreditcleaning.com",
-  owner: "Sof",
+  name: "Port Credit Cleaning",
+  url: "https://portcreditcleaning.ca",
+  phone: "{{PHONE_DISPLAY}}",
+  phoneTel: "tel:{{PHONE}}",
+  phoneSms: "sms:{{PHONE}}",
+  email: "hello@portcreditcleaning.ca",
   location: "Port Credit, Mississauga ON",
   neighborhoods: ["Port Credit", "Mineola", "Lakeview", "Lorne Park", "Clarkson"],
   nav: [
@@ -16,11 +15,6 @@ export default {
     { label: "About", href: "/about/" },
     { label: "Contact", href: "/contact/" },
   ],
-  social: {
-    facebook: "#",
-    instagram: "#",
-    google: "#",
-  },
   supabaseUrl: "REPLACE_ME",
   supabaseAnonKey: "REPLACE_ME",
 };

@@ -36,11 +36,11 @@ export async function onRequestPost({ request, env }) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       personalizations: [
-        { to: [{ email: env.LEAD_EMAIL || "hello@portcreditcleaning.com" }] },
+        { to: [{ email: env.LEAD_EMAIL || "hello@portcreditcleaning.ca" }] },
       ],
       from: {
-        email: "leads@portcreditcleaning.com",
-        name: "Port Credit Cleaners Website",
+        email: "leads@portcreditcleaning.ca",
+        name: "Port Credit Cleaning Website",
       },
       subject: `New lead from ${name}`,
       content: [{ type: "text/plain", value: body }],

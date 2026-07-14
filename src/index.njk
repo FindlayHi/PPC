@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "House Cleaning in Port Credit | Port Credit Cleaners"
-description: "Professional, locally-owned house & condo cleaning in Port Credit, Mississauga. Recurring, deep, move-in/out, condo & Airbnb. Book online or call (905) 555-0199."
+title: "House Cleaning in Port Credit | Port Credit Cleaning"
+description: "Professional, locally-owned house & condo cleaning in Port Credit, Mississauga. Recurring, deep, move-in/out, condo & Airbnb. Book online or call {{PHONE_DISPLAY}}."
 ---
 
 {# ── HERO ── #}
@@ -18,9 +18,9 @@ description: "Professional, locally-owned house & condo cleaning in Port Credit,
       <div class="flex flex-wrap gap-6 text-[13.5px] text-[#8DA0B4]">
         <span class="flex items-center gap-1.5">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="#F5A623" aria-hidden="true"><path d="M7 1l1.3 2.7 3 .4-2.2 2.1.5 3-2.6-1.4L4.4 9.2l.5-3L2.7 4.1l3-.4z"/></svg>
-          <strong class="text-white font-semibold">5.0</strong> &middot; 200+ local homes
+          <strong class="text-white font-semibold">5.0</strong> &middot; 100+ local homes
         </span>
-        <span>Fully insured &amp; vetted</span>
+        <span>Introductory rates for our first Port Credit clients</span>
         <span>Satisfaction guaranteed</span>
       </div>
     </div>
@@ -41,7 +41,7 @@ description: "Professional, locally-owned house & condo cleaning in Port Credit,
     </div>
     <div>
       <p class="font-display font-bold text-navy text-[16px] mb-1">Consistent Quality</p>
-      <p class="text-[#5C4E3A] text-[14.5px] leading-relaxed">The same trusted cleaner every visit, with a detailed checklist.</p>
+      <p class="text-[#5C4E3A] text-[14.5px] leading-relaxed">A consistent, dedicated cleaner for your home, with a detailed checklist.</p>
     </div>
     <div>
       <p class="font-display font-bold text-navy text-[16px] mb-1">Flexible Scheduling</p>
@@ -84,16 +84,16 @@ description: "Professional, locally-owned house & condo cleaning in Port Credit,
       </div>
       <div class="absolute -bottom-5 -right-5 bg-navy rounded-[16px] px-6 py-4" style="box-shadow: 0 16px 38px rgba(23,50,77,.14);">
         <p class="font-display font-extrabold text-teal text-[32px] leading-none">8 yrs</p>
-        <p class="text-[#8DA0B4] text-[13px] mt-0.5">cleaning homes locally</p>
+        <p class="text-[#8DA0B4] text-[13px] mt-0.5">cleaner experience</p>
       </div>
     </div>
     <div>
       <p class="text-teal text-[12.5px] font-semibold uppercase tracking-[0.13em] mb-3">Why choose us</p>
       <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em] mb-4">A cleaner who actually knows your home</h2>
-      <p class="text-[#4A5568] text-[17px] leading-relaxed mb-7">No rotating crews, no surprises. Just dependable, detailed cleaning from someone who treats your home like their own.</p>
+      <p class="text-[#4A5568] text-[17px] leading-relaxed mb-7">No rotating crews, no surprises. Just dependable, detailed cleaning from a team that treats your home like their own.</p>
       <ul class="space-y-3.5">
         {% set checks = [
-          ["Owner-operated.", "You deal directly with the person doing the work."],
+          ["A small, local, owner-operated team.", "No call centers, no rotating franchise crews."],
           ["Attention to detail.", "A consistent checklist so nothing gets missed."],
           ["Eco-friendly products available.", "Safe for kids, pets and sensitive homes."],
           ["Flexible scheduling.", "Easy to book, easy to reschedule when life happens."],
@@ -119,10 +119,10 @@ description: "Professional, locally-owned house & condo cleaning in Port Credit,
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-10">
       <h2 class="font-display font-extrabold text-navy text-[36px] leading-[1.1] tracking-[-0.022em]">Loved by homeowners across South Mississauga</h2>
       <p class="text-[#4A5568] text-[14.5px] shrink-0">
-        <span class="text-[#F5A623]">★★★★★</span> <strong class="text-navy">5.0</strong> average &middot; 200+ cleans
+        <span class="text-[#F5A623]">★★★★★</span> <strong class="text-navy">5.0</strong> average &middot; 100+ cleans
       </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-[22px]">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-[22px] max-w-[790px]">
       {% for testimonial in testimonials %}
       {% include "partials/review-card.njk" %}
       {% endfor %}
