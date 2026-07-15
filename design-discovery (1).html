@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porchlight · Design Discovery</title>
+<meta name="theme-color" content="#1E3527">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --surface:#FFFFFF;
+    --ink:#1A1A18;
+    --muted:#6B6B66;
+    --faint:#9B9B95;
+    --line:#E7E5DF;
+    --line-strong:#D9D6CE;
+    --accent:#1E3527;
+    --accent-soft:#E7EDE8;
+    --accent-ink:#14241A;
+    --glow:#E0A23E;
+    --warn:#B4533A;
+    --radius:12px;
+    --shadow:0 1px 2px rgba(26,26,24,.04),0 4px 16px rgba(26,26,24,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  body{padding:0 0 80px}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px}
+
+  /* Header */
+  header.top{position:sticky;top:0;z-index:20;background:rgba(250,250,248,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top-inner{max-width:980px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .mark{flex:none;display:inline-flex}
+  .brand-txt{display:flex;flex-direction:column;line-height:1.2}
+  .brand h1{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;letter-spacing:-.01em}
+  .brand .sub{font-size:12px;color:var(--faint);letter-spacing:.02em}
+  .prompt-toggle{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none}
+  .switch{width:34px;height:20px;border-radius:20px;background:var(--line-strong);position:relative;transition:background .18s;flex:none}
+  .switch::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.18);transition:transform .18s}
+  .prompt-toggle.on .switch{background:var(--accent)}
+  .prompt-toggle.on .switch::after{transform:translateX(14px)}
+
+  /* Step nav */
+  nav.steps{border-bottom:1px solid var(--line);background:var(--paper)}
+  .steps-inner{max-width:980px;margin:0 auto;padding:0 28px;display:flex;gap:4px;overflow-x:auto}
+  .step{appearance:none;border:none;background:none;font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;color:var(--muted);padding:14px 12px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;display:flex;align-items:center;gap:8px;transition:color .15s}
+  .step .n{font-size:11px;color:var(--faint);font-weight:600}
+  .step:hover{color:var(--ink)}
+  .step.active{color:var(--accent-ink);border-bottom-color:var(--accent)}
+  .step.active .n{color:var(--accent)}
+
+  /* Panels */
+  main{padding-top:36px}
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  h2.title{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+  .lede{font-size:15px;color:var(--muted);max-width:60ch;margin-bottom:8px}
+  .prompt{font-size:13.5px;color:var(--accent-ink);background:var(--accent-soft);border-left:2px solid var(--accent);padding:9px 13px;border-radius:0 8px 8px 0;margin:18px 0 26px;max-width:64ch}
+  .prompt::before{content:"Ask · ";font-weight:600}
+  body:not(.prompts) .prompt{display:none}
+  body:not(.prompts) .title{margin-bottom:26px}
+
+  /* Intro fields */
+  .field-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+  .field{flex:1;min-width:220px}
+  label.fl{display:block;font-size:12.5px;font-weight:500;color:var(--muted);margin-bottom:6px}
+  input.txt,textarea.txt{width:100%;font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:10px;padding:11px 13px;transition:border-color .15s,box-shadow .15s}
+  input.txt:focus,textarea.txt:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  textarea.txt{resize:vertical;min-height:64px}
+
+  /* Word cloud */
+  .pickbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+  .counthint{font-size:13px;color:var(--muted)}
+  .counthint b{color:var(--accent-ink);font-weight:600}
+  .words{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:8px}
+  .word{appearance:none;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;padding:8px 15px;border-radius:40px;cursor:pointer;transition:all .14s}
+  .word:hover{border-color:var(--accent);color:var(--accent-ink)}
+  .word.sel{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:500}
+  .word.s2{font-size:15px}.word.s3{font-size:16px}
+  .addword{display:flex;gap:8px;margin-top:18px;max-width:360px}
+  .addword input{flex:1}
+  .btn-mini{appearance:none;border:1px solid var(--line-strong);background:var(--surface);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:var(--ink);padding:0 16px;border-radius:9px;cursor:pointer;transition:all .14s}
+  .btn-mini:hover{border-color:var(--accent);color:var(--accent-ink)}
+
+  /* Sites */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:720px){.twocol{grid-template-columns:1fr}}
+  .col-head{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;margin-bottom:12px}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .dot.good{background:var(--accent)}.dot.bad{background:var(--warn)}
+  .site-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:13px;margin-bottom:11px;box-shadow:var(--shadow)}
+  .site-card input{margin-bottom:8px}
+  .site-card textarea{min-height:48px}
+  .site-card .rm{font-size:12px;color:var(--faint);cursor:pointer;float:right;margin-top:2px}
+  .site-card .rm:hover{color:var(--warn)}
+  .addbtn{width:100%;appearance:none;border:1px dashed var(--line-strong);background:none;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;padding:11px;border-radius:10px;cursor:pointer;transition:all .14s}
+  .addbtn:hover{border-color:var(--accent);color:var(--accent-ink);background:var(--accent-soft)}
+
+  /* Palettes */
+  .pal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.pal-grid{grid-template-columns:1fr}}
+  .pal{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);padding:14px;cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+  .pal:hover{border-color:var(--line-strong);transform:translateY(-1px)}
+  .pal.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft),var(--shadow)}
+  .swatches{display:flex;height:46px;border-radius:8px;overflow:hidden;margin-bottom:11px}
+  .swatches span{flex:1}
+  .pal-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;display:flex;align-items:center;justify-content:space-between}
+  .pal-name .chk{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line-strong);flex:none;transition:all .15s}
+  .pal.sel .chk{background:var(--accent);border-color:var(--accent);position:relative}
+  .pal.sel .chk::after{content:"";position:absolute;left:5px;top:2px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .pal-desc{font-size:12.5px;color:var(--muted);margin-top:3px}
+
+  /* Photo styles */
+  .photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:720px){.photo-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.photo-grid{grid-template-columns:1fr}}
+  .photo{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+  .photo:hover{transform:translateY(-1px)}
+  .photo.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft),var(--shadow)}
+  .photo .vis{height:78px}
+  .photo .meta{padding:11px 13px}
+  .photo .pn{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px}
+  .photo .pd{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+
+  /* Pages */
+  .page-list{max-width:520px}
+  .page-item{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;box-shadow:var(--shadow)}
+  .page-item.off{opacity:.5}
+  .pcheck{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line-strong);flex:none;cursor:pointer;transition:all .14s;position:relative}
+  .page-item.on .pcheck{background:var(--accent);border-color:var(--accent)}
+  .page-item.on .pcheck::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .page-name{flex:1;font-size:14.5px;font-weight:500}
+  .page-item .rm{font-size:12px;color:var(--faint);cursor:pointer}
+  .page-item .rm:hover{color:var(--warn)}
+
+  /* Summary */
+  .sum-actions{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+  .btn{appearance:none;border:none;font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:600;padding:11px 20px;border-radius:10px;cursor:pointer;transition:all .15s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-ink)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-ink)}
+
+  .sheet{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:34px 36px;box-shadow:var(--shadow)}
+  .sheet-brand{display:flex;align-items:center;gap:9px;padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+  .sheet-brand .wm{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:-.01em}
+  .sheet-brand .url{margin-left:auto;font-size:12.5px;color:var(--faint)}
+  .site-foot{text-align:center;font-size:12px;color:var(--faint);padding:34px 0 0;letter-spacing:.02em}
+  .sheet h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:2px}
+  .sheet .meta-line{font-size:13px;color:var(--faint);margin-bottom:24px}
+  .sblock{padding:16px 0;border-top:1px solid var(--line)}
+  .sblock:first-of-type{border-top:none;padding-top:4px}
+  .sk{font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:9px}
+  .sv{font-size:14.5px;color:var(--ink)}
+  .sv .empty{color:var(--faint);font-style:italic}
+  .chiprow{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{background:var(--accent-soft);color:var(--accent-ink);font-size:13px;font-weight:500;padding:5px 12px;border-radius:30px}
+  .sum-sw{display:inline-flex;height:22px;border-radius:5px;overflow:hidden;vertical-align:middle;margin-left:4px;border:1px solid var(--line)}
+  .sum-sw span{width:22px}
+  .ref{margin-bottom:10px}
+  .ref:last-child{margin-bottom:0}
+  .ref .u{font-weight:600;font-size:14px}
+  .ref .nt{font-size:13.5px;color:var(--muted)}
+  .pagechips{display:flex;flex-wrap:wrap;gap:7px}
+  .pagechip{background:var(--paper);border:1px solid var(--line-strong);font-size:13px;font-weight:500;padding:5px 13px;border-radius:7px}
+
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;font-size:13.5px;font-weight:500;padding:11px 20px;border-radius:10px;opacity:0;pointer-events:none;transition:all .25s;z-index:50}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media print{
+    header.top,nav.steps,.sum-actions,.prompt,.eyebrow,.lede{display:none!important}
+    body{padding:0}.panel{display:none!important}.panel#p-summary{display:block!important}
+    .sheet{border:none;box-shadow:none;padding:0}
+    .site-foot{padding-top:24px}
+  }
+</style>
+</head>
+<body class="prompts">
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.4V5" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M8.4 5h7.2" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="6.5" y="5.5" width="11" height="14" rx="4.6" fill="var(--accent)"/>
+          <circle cx="12" cy="12.6" r="3.2" fill="var(--glow)"/>
+        </svg>
+      </span>
+      <div class="brand-txt">
+        <h1>Porchlight</h1>
+        <span class="sub" id="brandSub">Design discovery · look &amp; feel</span>
+      </div>
+    </div>
+    <div class="prompt-toggle on" id="promptToggle" role="switch" aria-checked="true" tabindex="0">
+      <span class="switch"></span><span>Presenter prompts</span>
+    </div>
+  </div>
+</header>
+
+<nav class="steps">
+  <div class="steps-inner" id="stepNav"></div>
+</nav>
+
+<main class="wrap">
+
+  <!-- 1 · Setup -->
+  <section class="panel active" id="p-setup">
+    <div class="eyebrow">Before we start</div>
+    <h2 class="title">Set the scene</h2>
+    <p class="lede">Just the basics so the summary at the end has a name on it. Skip anything you don't need.</p>
+    <div class="prompt">Who are we building this for, and who lands on the site? One sentence each is plenty.</div>
+    <div class="field-row">
+      <div class="field"><label class="fl">Client / project</label><input class="txt" id="f-client" placeholder="e.g. Northcote Joinery"></div>
+      <div class="field"><label class="fl">Date</label><input class="txt" id="f-date" placeholder="auto"></div>
+    </div>
+    <div class="field">
+      <label class="fl">Who's the site for? (audience, in plain words)</label>
+      <textarea class="txt" id="f-audience" placeholder="e.g. homeowners planning a renovation who want craft they can trust"></textarea>
+    </div>
+  </section>
+
+  <!-- 2 · Words -->
+  <section class="panel" id="p-words">
+    <div class="eyebrow">Exercise one</div>
+    <h2 class="title">The feeling, in words</h2>
+    <p class="lede">Tap the words that match how the site should feel. Aim for three to five — the ones that really land.</p>
+    <div class="prompt">When the right client lands on the homepage, what should they feel in the first five seconds?</div>
+    <div class="pickbar">
+      <span class="counthint"><b id="wordCount">0</b> selected · <span id="wordHint">pick a few</span></span>
+    </div>
+    <div class="words" id="wordCloud"></div>
+    <div class="addword">
+      <input class="txt" id="wordInput" placeholder="Add your own word…">
+      <button class="btn-mini" id="wordAdd">Add</button>
+    </div>
+  </section>
+
+  <!-- 3 · References -->
+  <section class="panel" id="p-sites">
+    <div class="eyebrow">Exercise two</div>
+    <h2 class="title">Sites you like &amp; don't</h2>
+    <p class="lede">Pull up a couple of each. The note matters more than the link — name the one thing that works or grates.</p>
+    <div class="prompt">Forget the industry — what about this one makes you lean in, or pull back?</div>
+    <div class="twocol">
+      <div>
+        <div class="col-head"><span class="dot good"></span>Drawn to</div>
+        <div id="likeList"></div>
+        <button class="addbtn" data-add="like">+ Add a site</button>
+      </div>
+      <div>
+        <div class="col-head"><span class="dot bad"></span>Put off by</div>
+        <div id="dislikeList"></div>
+        <button class="addbtn" data-add="dislike">+ Add a site</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Colour -->
+  <section class="panel" id="p-colour">
+    <div class="eyebrow">Exercise three</div>
+    <h2 class="title">Colour &amp; mood</h2>
+    <p class="lede">No need to land the exact palette today. Point at the directions that feel right — pick as many as resonate.</p>
+    <div class="prompt">Don't overthink the shades. Which of these feels like the brand, and which feels like someone else?</div>
+    <div class="pal-grid" id="palGrid"></div>
+    <div class="field" style="margin-top:22px;max-width:560px">
+      <label class="fl">Any colour notes — loves, hard no's, existing brand colours?</label>
+      <textarea class="txt" id="f-colournote" placeholder="e.g. has to work with the existing logo green; no bright red"></textarea>
+    </div>
+  </section>
+
+  <!-- 5 · Photography -->
+  <section class="panel" id="p-photo">
+    <div class="eyebrow">Exercise four</div>
+    <h2 class="title">Photography feel</h2>
+    <p class="lede">How should the images carry the mood? Pick the direction that fits — one is fine, two if they blend.</p>
+    <div class="prompt">Picture the hero image. Is it bright and open, quiet and moody, or caught in the moment?</div>
+    <div class="photo-grid" id="photoGrid"></div>
+    <div class="field" style="margin-top:22px;max-width:560px">
+      <label class="fl">Photo notes — what they have, what they need</label>
+      <textarea class="txt" id="f-photonote" placeholder="e.g. has product shots already; needs new team photos; avoid stock"></textarea>
+    </div>
+  </section>
+
+  <!-- 6 · Pages -->
+  <section class="panel" id="p-pages">
+    <div class="eyebrow">Lock it in</div>
+    <h2 class="title">The page list</h2>
+    <p class="lede">Toggle off anything you don't need, add what's missing. This is the list we both agree to fill next.</p>
+    <div class="prompt">This is what we're committing to build. Anything here that's a maybe? Anything missing?</div>
+    <div class="page-list" id="pageList"></div>
+    <div class="addword" style="max-width:420px;margin-top:16px">
+      <input class="txt" id="pageInput" placeholder="Add a page…">
+      <button class="btn-mini" id="pageAdd">Add</button>
+    </div>
+  </section>
+
+  <!-- 7 · Summary -->
+  <section class="panel" id="p-summary">
+    <div class="eyebrow">The deliverable</div>
+    <h2 class="title">Look &amp; feel summary</h2>
+    <p class="lede">This builds itself from everything above. Copy it into your follow-up, or print to PDF to send as the one-pager.</p>
+    <div class="sum-actions">
+      <button class="btn btn-primary" id="copyBtn">Copy summary</button>
+      <button class="btn btn-ghost" id="printBtn">Print / save PDF</button>
+    </div>
+    <div class="sheet" id="sheet"></div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<footer class="site-foot">Porchlight · porchlight-solutions.ca</footer>
+
+<script>
+const STEPS=[
+  {id:'setup',label:'Setup'},
+  {id:'words',label:'Words'},
+  {id:'sites',label:'References'},
+  {id:'colour',label:'Colour'},
+  {id:'photo',label:'Photos'},
+  {id:'pages',label:'Pages'},
+  {id:'summary',label:'Summary'}
+];
+
+const WORDS=[
+  'Calm','Grounded','Warm','Trustworthy','Established','Modern','Clean','Minimal',
+  'Confident','Bold','Premium','Refined','Approachable','Friendly','Human','Honest',
+  'Fresh','Bright','Quiet','Serene','Natural','Earthy','Handcrafted','Authentic',
+  'Sharp','Precise','Professional','Solid','Playful','Optimistic','Editorial','Distinctive',
+  'Sophisticated','Inviting','Effortless','Dependable'
+];
+
+const PALETTES=[
+  {id:'earth',name:'Earth & calm',desc:'Warm neutrals, sage, soft clay',cols:['#EFE9DD','#C7BBA0','#8A9A7B','#5C6B53','#3A3A32']},
+  {id:'quiet',name:'Quiet premium',desc:'Off-white, charcoal, muted gold',cols:['#F4F2EC','#D8D2C4','#B89B5E','#2C2C2A','#111110']},
+  {id:'fresh',name:'Fresh & modern',desc:'White, slate, one clean accent',cols:['#FFFFFF','#E6EAEE','#94A3B0','#2F6FEB','#1F2933']},
+  {id:'warm',name:'Warm & human',desc:'Cream, terracotta, soft brown',cols:['#FBF3E8','#E8B98C','#C56B4A','#7A4A38','#3E2A22']},
+  {id:'bold',name:'Bold & confident',desc:'Deep ink, vivid accent',cols:['#0E1116','#1C2530','#E94E3C','#F2C84B','#F5F3EE']},
+  {id:'serene',name:'Soft & serene',desc:'Pale blue-green, light grey',cols:['#F5F8F7','#D6E6E2','#9CC2BC','#6E9B96','#3D5654']},
+  {id:'mono',name:'Crisp monochrome',desc:'Black, white, greys only',cols:['#FFFFFF','#D6D6D6','#9A9A9A','#3A3A3A','#0A0A0A']},
+  {id:'jewel',name:'Rich & saturated',desc:'Deep jewel tones, gold',cols:['#1B2B4A','#2E5E5A','#7B3F61','#C9A24B','#F0EAD8']}
+];
+
+const PHOTOS=[
+  {id:'airy',name:'Bright & airy',desc:'Light, open, lots of white space',g:'linear-gradient(135deg,#F4F1EA,#E3EAE6)'},
+  {id:'moody',name:'Moody & dramatic',desc:'Dark, rich shadow, contrast',g:'linear-gradient(135deg,#2B2E33,#4A4030)'},
+  {id:'candid',name:'Candid & real',desc:'Documentary, in-the-moment',g:'linear-gradient(135deg,#C9A98A,#8A7B6B)'},
+  {id:'editorial',name:'Editorial & styled',desc:'Composed, intentional, art-directed',g:'linear-gradient(135deg,#1F2933,#6B7B8C)'},
+  {id:'minimal',name:'Minimal & product',desc:'Clean object shots, plain ground',g:'linear-gradient(135deg,#F6F5F2,#D9D4CC)'},
+  {id:'natural',name:'Natural & outdoor',desc:'Daylight, texture, place',g:'linear-gradient(135deg,#A7B98C,#5C6B53)'}
+];
+
+const DEFAULT_PAGES=['Home','About','Services','Work','Pricing','Contact'];
+
+const state={
+  client:'',date:'',audience:'',
+  words:new Set(),customWords:[],
+  like:[{url:'',note:''}],dislike:[{url:'',note:''}],
+  palettes:new Set(),colourNote:'',
+  photos:new Set(),photoNote:'',
+  pages:DEFAULT_PAGES.map(n=>({name:n,on:true}))
+};
+
+/* ---------- Nav ---------- */
+const nav=document.getElementById('stepNav');
+STEPS.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.className='step'+(i===0?' active':'');
+  b.dataset.id=s.id;
+  b.innerHTML=`<span class="n">${String(i+1).padStart(2,'0')}</span>${s.label}`;
+  b.onclick=()=>goto(s.id);
+  nav.appendChild(b);
+});
+function goto(id){
+  document.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',s.dataset.id===id));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='p-'+id));
+  if(id==='summary')renderSummary();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------- Prompts toggle ---------- */
+const pt=document.getElementById('promptToggle');
+function flip(){const on=pt.classList.toggle('on');document.body.classList.toggle('prompts',on);pt.setAttribute('aria-checked',on)}
+pt.onclick=flip;
+pt.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}};
+
+/* ---------- Setup fields ---------- */
+const today=new Date().toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'});
+document.getElementById('f-date').value=today;state.date=today;
+document.getElementById('f-client').oninput=e=>{state.client=e.target.value;document.getElementById('brandSub').textContent=state.client?'Design discovery · '+state.client:'Design discovery · look & feel'};
+document.getElementById('f-date').oninput=e=>state.date=e.target.value;
+document.getElementById('f-audience').oninput=e=>state.audience=e.target.value;
+document.getElementById('f-colournote').oninput=e=>state.colourNote=e.target.value;
+document.getElementById('f-photonote').oninput=e=>state.photoNote=e.target.value;
+
+/* ---------- Words ---------- */
+const cloud=document.getElementById('wordCloud');
+function renderWords(){
+  cloud.innerHTML='';
+  [...WORDS,...state.customWords].forEach(w=>{
+    const b=document.createElement('button');
+    const sel=state.words.has(w);
+    b.className='word'+(sel?' sel':'');
+    b.textContent=w;
+    b.onclick=()=>{sel?state.words.delete(w):state.words.add(w);renderWords();updWordCount()};
+    cloud.appendChild(b);
+  });
+}
+function updWordCount(){
+  const n=state.words.size;
+  document.getElementById('wordCount').textContent=n;
+  const h=document.getElementById('wordHint');
+  h.textContent=n===0?'pick a few':n<3?'keep going':n<=5?'nice — that\'s the sweet spot':'maybe trim to the strongest';
+}
+document.getElementById('wordAdd').onclick=addWord;
+document.getElementById('wordInput').onkeydown=e=>{if(e.key==='Enter')addWord()};
+function addWord(){
+  const i=document.getElementById('wordInput');const v=i.value.trim();
+  if(!v)return;
+  const w=v.charAt(0).toUpperCase()+v.slice(1);
+  if(![...WORDS,...state.customWords].includes(w))state.customWords.push(w);
+  state.words.add(w);i.value='';renderWords();updWordCount();
+}
+
+/* ---------- Sites ---------- */
+function renderSites(kind){
+  const list=document.getElementById(kind+'List');
+  list.innerHTML='';
+  state[kind].forEach((s,idx)=>{
+    const c=document.createElement('div');c.className='site-card';
+    c.innerHTML=`<span class="rm" title="Remove">remove</span>
+      <input class="txt url" placeholder="example.com" value="${esc(s.url)}">
+      <textarea class="txt note" placeholder="What works / what grates?">${esc(s.note)}</textarea>`;
+    c.querySelector('.url').oninput=e=>s.url=e.target.value;
+    c.querySelector('.note').oninput=e=>s.note=e.target.value;
+    c.querySelector('.rm').onclick=()=>{state[kind].splice(idx,1);if(state[kind].length===0)state[kind].push({url:'',note:''});renderSites(kind)};
+    list.appendChild(c);
+  });
+}
+document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const k=b.dataset.add;state[k].push({url:'',note:''});renderSites(k)});
+
+/* ---------- Palettes ---------- */
+const palGrid=document.getElementById('palGrid');
+PALETTES.forEach(p=>{
+  const el=document.createElement('div');el.className='pal';el.dataset.id=p.id;
+  el.innerHTML=`<div class="swatches">${p.cols.map(c=>`<span style="background:${c}"></span>`).join('')}</div>
+    <div class="pal-name">${p.name}<span class="chk"></span></div><div class="pal-desc">${p.desc}</div>`;
+  el.onclick=()=>{state.palettes.has(p.id)?state.palettes.delete(p.id):state.palettes.add(p.id);el.classList.toggle('sel')};
+  palGrid.appendChild(el);
+});
+
+/* ---------- Photos ---------- */
+const photoGrid=document.getElementById('photoGrid');
+PHOTOS.forEach(p=>{
+  const el=document.createElement('div');el.className='photo';
+  el.innerHTML=`<div class="vis" style="background:${p.g}"></div><div class="meta"><div class="pn">${p.name}</div><div class="pd">${p.desc}</div></div>`;
+  el.onclick=()=>{state.photos.has(p.id)?state.photos.delete(p.id):state.photos.add(p.id);el.classList.toggle('sel')};
+  photoGrid.appendChild(el);
+});
+
+/* ---------- Pages ---------- */
+const pageList=document.getElementById('pageList');
+function renderPages(){
+  pageList.innerHTML='';
+  state.pages.forEach((p,idx)=>{
+    const el=document.createElement('div');el.className='page-item '+(p.on?'on':'off');
+    el.innerHTML=`<span class="pcheck"></span><span class="page-name">${esc(p.name)}</span><span class="rm">delete</span>`;
+    el.querySelector('.pcheck').onclick=()=>{p.on=!p.on;renderPages()};
+    el.querySelector('.rm').onclick=()=>{state.pages.splice(idx,1);renderPages()};
+    pageList.appendChild(el);
+  });
+}
+document.getElementById('pageAdd').onclick=addPage;
+document.getElementById('pageInput').onkeydown=e=>{if(e.key==='Enter')addPage()};
+function addPage(){const i=document.getElementById('pageInput');const v=i.value.trim();if(!v)return;state.pages.push({name:v,on:true});i.value='';renderPages()}
+
+/* ---------- Summary ---------- */
+function renderSummary(){
+  const sh=document.getElementById('sheet');
+  const words=[...state.words];
+  const pals=PALETTES.filter(p=>state.palettes.has(p.id));
+  const phs=PHOTOS.filter(p=>state.photos.has(p.id));
+  const pages=state.pages.filter(p=>p.on);
+  const likes=state.like.filter(s=>s.url||s.note);
+  const dislikes=state.dislike.filter(s=>s.url||s.note);
+
+  const emptyTag=t=>`<span class="empty">${t}</span>`;
+
+  sh.innerHTML=`
+    <div class="sheet-brand">
+      <span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2.4V5" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/><path d="M8.4 5h7.2" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/><rect x="6.5" y="5.5" width="11" height="14" rx="4.6" fill="var(--accent)"/><circle cx="12" cy="12.6" r="3.2" fill="var(--glow)"/></svg></span>
+      <span class="wm">Porchlight</span>
+      <span class="url">porchlight-solutions.ca</span>
+    </div>
+    <h3>${esc(state.client)||'Look &amp; feel summary'}</h3>
+    <div class="meta-line">${esc(state.date)}${state.audience?' · '+esc(state.audience):''}</div>
+
+    <div class="sblock"><div class="sk">The feeling</div><div class="sv">
+      ${words.length?`<div class="chiprow">${words.map(w=>`<span class="chip">${esc(w)}</span>`).join('')}</div>`:emptyTag('No words picked yet')}
+    </div></div>
+
+    <div class="sblock"><div class="sk">Colour direction</div><div class="sv">
+      ${pals.length?pals.map(p=>`<div style="margin-bottom:7px">${esc(p.name)}<span class="sum-sw">${p.cols.map(c=>`<span style="background:${c}"></span>`).join('')}</span></div>`).join(''):emptyTag('No direction chosen yet')}
+      ${state.colourNote?`<div class="nt" style="font-size:13.5px;color:var(--muted);margin-top:6px">${esc(state.colourNote)}</div>`:''}
+    </div></div>
+
+    <div class="sblock"><div class="sk">Photography</div><div class="sv">
+      ${phs.length?`<div class="chiprow">${phs.map(p=>`<span class="chip">${esc(p.name)}</span>`).join('')}</div>`:emptyTag('No style chosen yet')}
+      ${state.photoNote?`<div class="nt" style="font-size:13.5px;color:var(--muted);margin-top:6px">${esc(state.photoNote)}</div>`:''}
+    </div></div>
+
+    <div class="sblock"><div class="sk">Drawn to</div><div class="sv">
+      ${likes.length?likes.map(s=>`<div class="ref"><div class="u">${esc(s.url)||'—'}</div>${s.note?`<div class="nt">${esc(s.note)}</div>`:''}</div>`).join(''):emptyTag('None noted')}
+    </div></div>
+
+    <div class="sblock"><div class="sk">Put off by</div><div class="sv">
+      ${dislikes.length?dislikes.map(s=>`<div class="ref"><div class="u">${esc(s.url)||'—'}</div>${s.note?`<div class="nt">${esc(s.note)}</div>`:''}</div>`).join(''):emptyTag('None noted')}
+    </div></div>
+
+    <div class="sblock"><div class="sk">Page list — locked</div><div class="sv">
+      ${pages.length?`<div class="pagechips">${pages.map(p=>`<span class="pagechip">${esc(p.name)}</span>`).join('')}</div>`:emptyTag('No pages selected')}
+    </div></div>
+  `;
+}
+
+function summaryText(){
+  const words=[...state.words];
+  const pals=PALETTES.filter(p=>state.palettes.has(p.id));
+  const phs=PHOTOS.filter(p=>state.photos.has(p.id));
+  const pages=state.pages.filter(p=>p.on);
+  const likes=state.like.filter(s=>s.url||s.note);
+  const dislikes=state.dislike.filter(s=>s.url||s.note);
+  const L=[];
+  L.push(`PORCHLIGHT · porchlight-solutions.ca`);
+  L.push(`Look & feel summary`);
+  L.push((state.client||'Project')+' · '+state.date);
+  if(state.audience)L.push('Audience: '+state.audience);
+  L.push('');
+  L.push('THE FEELING');L.push(words.length?words.join(', '):'—');L.push('');
+  L.push('COLOUR DIRECTION');
+  L.push(pals.length?pals.map(p=>`${p.name} (${p.cols.join(' ')})`).join('\n'):'—');
+  if(state.colourNote)L.push('Note: '+state.colourNote);L.push('');
+  L.push('PHOTOGRAPHY');L.push(phs.length?phs.map(p=>p.name).join(', '):'—');
+  if(state.photoNote)L.push('Note: '+state.photoNote);L.push('');
+  L.push('DRAWN TO');L.push(likes.length?likes.map(s=>`- ${s.url||'—'}${s.note?' — '+s.note:''}`).join('\n'):'—');L.push('');
+  L.push('PUT OFF BY');L.push(dislikes.length?dislikes.map(s=>`- ${s.url||'—'}${s.note?' — '+s.note:''}`).join('\n'):'—');L.push('');
+  L.push('PAGE LIST — LOCKED');L.push(pages.length?pages.map(p=>'- '+p.name).join('\n'):'—');
+  L.push('');L.push('—');L.push('Prepared by Porchlight · porchlight-solutions.ca');
+  return L.join('\n');
+}
+document.getElementById('copyBtn').onclick=()=>{
+  const t=summaryText();
+  navigator.clipboard.writeText(t).then(showToast).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();showToast();
+  });
+};
+function buildPrintDoc(){
+  renderSummary();
+  const inner=document.getElementById('sheet').innerHTML;
+  const name=(state.client||'Porchlight')+' — Look & Feel';
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${esc(name)}</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1A18;--muted:#6B6B66;--faint:#9B9B95;--line:#E7E5DF;--accent:#1E3527;--accent-soft:#E7EDE8;--accent-ink:#14241A;--glow:#E0A23E;--paper:#fff;--surface:#fff}
+@page{margin:18mm}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet-brand{display:flex;align-items:center;gap:9px;padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.sheet-brand .wm{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px}
+.sheet-brand .url{margin-left:auto;font-size:12.5px;color:var(--faint)}
+.mark{display:inline-flex}
+h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:2px}
+.meta-line{font-size:13px;color:var(--faint);margin-bottom:24px}
+.sblock{padding:16px 0;border-top:1px solid var(--line);break-inside:avoid}
+.sblock:first-of-type{border-top:none;padding-top:4px}
+.sk{font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:9px}
+.sv{font-size:14.5px}.sv .empty{color:var(--faint);font-style:italic}
+.chiprow{display:flex;flex-wrap:wrap;gap:7px}
+.chip{background:var(--accent-soft);color:var(--accent-ink);font-size:13px;font-weight:500;padding:5px 12px;border-radius:30px}
+.sum-sw{display:inline-flex;height:22px;border-radius:5px;overflow:hidden;vertical-align:middle;margin-left:4px;border:1px solid var(--line)}
+.sum-sw span{width:22px}
+.ref{margin-bottom:10px}.ref .u{font-weight:600;font-size:14px}.ref .nt{font-size:13.5px;color:var(--muted)}
+.pagechips{display:flex;flex-wrap:wrap;gap:7px}
+.pagechip{background:#FAFAF8;border:1px solid #D9D6CE;font-size:13px;font-weight:500;padding:5px 13px;border-radius:7px}
+.foot{text-align:center;font-size:12px;color:var(--faint);margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
+</style></head><body>
+${inner}
+<div class="foot">Prepared by Porchlight · porchlight-solutions.ca</div>
+<script>window.onload=function(){setTimeout(function(){window.print()},350)}<\/script>
+</body></html>`;
+}
+document.getElementById('printBtn').onclick=()=>{
+  const doc=buildPrintDoc();
+  let w=null;
+  try{w=window.open('','_blank')}catch(e){}
+  if(w){w.document.open();w.document.write(doc);w.document.close();return}
+  // Frame blocked the print window — download a print-ready one-pager instead
+  try{
+    const blob=new Blob([doc],{type:'text/html'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=(state.client||'porchlight').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'-look-and-feel.html';
+    document.body.appendChild(a);a.click();a.remove();
+    showToast('Downloaded — open it, then Ctrl/Cmd+P to save as PDF');
+  }catch(e){showToast('Print blocked here — download this tool and open in a browser')}
+};
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg||'Copied to clipboard';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400)}
+
+/* ---------- util ---------- */
+function esc(s){return(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* ---------- init ---------- */
+renderWords();updWordCount();renderSites('like');renderSites('dislike');renderPages();
+</script>
+</body>
+</html>
