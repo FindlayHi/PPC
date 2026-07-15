@@ -90,6 +90,9 @@ document.querySelectorAll("[data-form]").forEach((form) => {
       if (typeof gtag === "function") {
         gtag("event", "generate_lead", { form_type: formType });
       }
+      if (typeof fbq === "function") {
+        fbq("track", "Lead", { content_name: formType });
+      }
     } catch {
       // Don't block the user — show success even if Supabase fails
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText; }
@@ -99,4 +102,12 @@ document.querySelectorAll("[data-form]").forEach((form) => {
       }
     }
   });
+});
+
+// Meta Pixel: track call/email clicks as Contact events
+document.addEventListener("click", (e) => {
+  const link = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+  if (link && typeof fbq === "function") {
+    fbq("track", "Contact", { content_name: link.href.startsWith("tel:") ? "phone" : "email" });
+  }
 });
