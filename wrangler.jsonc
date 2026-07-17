@@ -1,5 +1,5 @@
 {
-  "name": "portcreditcleaners",
+  "name": "pcc",
   "compatibility_date": "2026-07-16",
   "main": "src/worker.js",
   "assets": {
