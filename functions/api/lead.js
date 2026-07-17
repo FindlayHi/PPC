@@ -30,26 +30,25 @@ export async function onRequestPost({ request, env }) {
     .map(([k, v]) => `${k}: ${v}`)
     .join("\n");
 
-  // Send via MailChannels (Cloudflare-native)
-  const mailRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
+  // Send via Resend
+  const mailRes = await fetch("https://api.resend.com/emails", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+    },
     body: JSON.stringify({
-      personalizations: [
-        { to: [{ email: env.LEAD_EMAIL || "hello@portcreditcleaning.ca" }] },
-      ],
-      from: {
-        email: "leads@portcreditcleaning.ca",
-        name: "Port Credit Cleaning Website",
-      },
+      from: env.LEAD_FROM_EMAIL || "Port Credit Cleaning <leads@mustbethebeard.com>",
+      to: [env.LEAD_EMAIL || "hello@portcreditcleaning.ca"],
+      reply_to: fields.email || undefined,
       subject: `New lead from ${name}`,
-      content: [{ type: "text/plain", value: body }],
+      text: body,
     }),
   });
 
   if (!mailRes.ok) {
     const err = await mailRes.text();
-    console.error("MailChannels error:", err);
+    console.error("Resend error:", err);
     // Still return success to user — don't block on email failure
   }
 
