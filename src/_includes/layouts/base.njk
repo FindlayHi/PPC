@@ -42,7 +42,7 @@ src="https://www.facebook.com/tr?id=1502070954540033&ev=PageView&noscript=1"
   </head>
   <body class="bg-white font-sans text-ink antialiased">
     {% include "partials/header.njk" %}
-    {{ content | safe }}
+    <main>{{ content | safe }}</main>
     {% include "partials/footer.njk" %}
     {% include "partials/mobile-cta.njk" %}
     <script>
