@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "concurrently -k -n eleventy,tailwind \"eleventy --serve\" \"tailwindcss -i src/styles/tailwind.css -o _site/css/styles.css --watch\"",
     "build": "tailwindcss -i src/styles/tailwind.css -o _site/css/styles.css --minify && eleventy",
-    "preview": "eleventy --serve"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
@@ -15,5 +16,8 @@
     "concurrently": "^9.1.0",
     "sharp": "^0.35.2",
     "tailwindcss": "^4.1.8"
+  },
+  "devDependencies": {
+    "wrangler": "^4.111.0"
   }
 }
