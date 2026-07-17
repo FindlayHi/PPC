@@ -97,7 +97,7 @@ document.querySelectorAll("[data-form]").forEach((form) => {
       // Don't block the user — show success even if Supabase fails
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText; }
       if (errorEl) {
-        errorEl.textContent = "Something went wrong. Please call us at {{PHONE_DISPLAY}} or try again.";
+        errorEl.textContent = "Something went wrong. Please call us at (289) 643-4207 or try again.";
         errorEl.classList.remove("hidden");
       }
     }

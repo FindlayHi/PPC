@@ -1,9 +1,9 @@
 export default {
   name: "Port Credit Cleaning",
   url: "https://portcreditcleaning.ca",
-  phone: "{{PHONE_DISPLAY}}",
-  phoneTel: "tel:{{PHONE}}",
-  phoneSms: "sms:{{PHONE}}",
+  phone: "(289) 643-4207",
+  phoneTel: "tel:+12896434207",
+  phoneSms: "sms:+12896434207",
   email: "hello@portcreditcleaning.ca",
   location: "Port Credit, Mississauga ON",
   neighborhoods: ["Port Credit", "Mineola", "Lakeview", "Lorne Park", "Clarkson"],
