@@ -47,29 +47,42 @@ document.querySelectorAll("[data-form]").forEach((form) => {
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
 
     try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: fd,
+        headers: { Accept: "application/json" },
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || result.ok === false) {
+        throw new Error(result.error || "Request failed");
+      }
+
       const cfg = window.PCC_CONFIG || {};
       const isConfigured = cfg.supabaseUrl && cfg.supabaseUrl !== "REPLACE_ME";
 
       if (isConfigured) {
-        const { createClient } = await import("https://esm.sh/@supabase/supabase-js@2");
-        const supabase = createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
+        try {
+          const { createClient } = await import("https://esm.sh/@supabase/supabase-js@2");
+          const supabase = createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
 
-        const payload = {
-          form_type:      formType,
-          name,
-          phone:          fd.get("phone")?.trim() || null,
-          email:          fd.get("email")?.trim() || null,
-          contact:        fd.get("contact")?.trim() || null,
-          address:        fd.get("address")?.trim() || null,
-          cleaning_type:  fd.get("cleaning_type") || null,
-          property_size:  fd.get("property_size") || null,
-          preferred_date: fd.get("preferred_date") || null,
-          notes:          fd.get("notes")?.trim() || null,
-          message:        fd.get("message")?.trim() || null,
-        };
+          const payload = {
+            form_type:      formType,
+            name,
+            phone:          fd.get("phone")?.trim() || null,
+            email:          fd.get("email")?.trim() || null,
+            contact:        fd.get("contact")?.trim() || null,
+            address:        fd.get("address")?.trim() || null,
+            cleaning_type:  fd.get("cleaning_type") || null,
+            property_size:  fd.get("property_size") || null,
+            preferred_date: fd.get("preferred_date") || null,
+            notes:          fd.get("notes")?.trim() || null,
+            message:        fd.get("message")?.trim() || null,
+          };
 
-        const { error } = await supabase.from("pcc_leads").insert(payload);
-        if (error) throw error;
+          await supabase.from("pcc_leads").insert(payload);
+        } catch {
+          // Supabase mirror is best-effort — the lead email already sent above
+        }
       }
 
       // Success state
