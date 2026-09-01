@@ -23,6 +23,28 @@ document.querySelectorAll("#mobile-menu a").forEach((link) => {
   });
 });
 
+// Lead-source attribution (first-touch, session-persisted)
+const ATTR_URL_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid"];
+const attribution = (() => {
+  let stored = null;
+  try { stored = JSON.parse(sessionStorage.getItem("pcc_attribution")); } catch {}
+
+  if (!stored) {
+    const params = new URLSearchParams(location.search);
+    stored = {};
+    ATTR_URL_KEYS.forEach((key) => { stored[key] = params.get(key) || ""; });
+    stored.referrer = document.referrer || "";
+    stored.landing_page = location.pathname;
+    try { sessionStorage.setItem("pcc_attribution", JSON.stringify(stored)); } catch {}
+  }
+  return stored;
+})();
+
+document.querySelectorAll("[data-attr]").forEach((field) => {
+  if (field.dataset.attr === "page_url") return; // set fresh at submit time instead
+  field.value = attribution[field.dataset.attr] || "";
+});
+
 // Form submission via Supabase
 document.querySelectorAll("[data-form]").forEach((form) => {
   const submitBtn = form.querySelector('[type="submit"]');
@@ -30,6 +52,9 @@ document.querySelectorAll("[data-form]").forEach((form) => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    const pageUrlField = form.querySelector('[data-attr="page_url"]');
+    if (pageUrlField) pageUrlField.value = location.href;
 
     const fd = new FormData(form);
     const formType = form.dataset.form;
@@ -101,7 +126,12 @@ document.querySelectorAll("[data-form]").forEach((form) => {
       `;
 
       if (typeof gtag === "function") {
-        gtag("event", "generate_lead", { form_type: formType });
+        gtag("event", "generate_lead", {
+          form_type: formType,
+          source: attribution.utm_source || "(none)",
+          medium: attribution.utm_medium || "(none)",
+          campaign: attribution.utm_campaign || "(none)",
+        });
       }
       if (typeof fbq === "function") {
         fbq("track", "Lead", { content_name: formType });

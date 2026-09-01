@@ -1,5 +1,6 @@
 <form id="contact-form" action="/api/lead" method="POST" data-form="contact" class="space-y-4" novalidate>
   <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+  {% include "partials/attribution-fields.njk" %}
   <div>
     <label for="cf-name" class="block text-[13px] font-semibold text-[#3C4754] mb-1.5">Name <span class="text-red-500">*</span></label>
     <input type="text" id="cf-name" name="name" required placeholder="Your name" class="w-full bg-surface border border-[#E2E6EC] rounded-[10px] px-3.5 py-3 text-[15px] text-ink placeholder-[#9CA3AF] focus:outline-none focus:border-teal focus:bg-white" style="transition: border-color .15s, box-shadow .15s;" onfocus="this.style.boxShadow='0 0 0 3px rgba(90,167,167,.15)'" onblur="this.style.boxShadow='none'">
