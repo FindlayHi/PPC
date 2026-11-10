@@ -1,14 +1,14 @@
-<footer class="bg-navy-deep text-white">
+<footer class="bg-forest-deep text-white">
   <div class="max-w-[1180px] mx-auto px-8 pt-14 pb-10">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
 
       <!-- Brand -->
       <div class="md:col-span-1">
         <a href="/" class="flex items-center gap-2.5 mb-4">
-          <span class="w-[34px] h-[34px] bg-teal rounded-lg flex items-center justify-center font-display font-extrabold text-navy text-lg leading-none select-none">P</span>
+          <span class="w-[34px] h-[34px] bg-lime rounded-full flex items-center justify-center font-display font-extrabold text-forest text-lg leading-none select-none">P</span>
           <span class="font-display font-bold text-white text-[16px] leading-none">Port Credit Cleaning</span>
         </a>
-        <p class="text-[#8DA0B4] text-[14px] leading-relaxed">Reliable, locally-owned house and condo cleaning across Port Credit and South Mississauga.</p>
+        <p class="text-[#A9C2B4] text-[14px] leading-relaxed">Reliable, locally-owned house and condo cleaning across Port Credit and South Mississauga.</p>
         </div>
 
       <!-- Services -->
@@ -16,7 +16,7 @@
         <h3 class="text-white font-semibold text-[13px] uppercase tracking-[0.1em] mb-4">Services</h3>
         <ul class="space-y-2.5">
           {% for s in services %}
-          <li><a href="/services/{{ s.slug }}/" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">{{ s.cardTitle }}</a></li>
+          <li><a href="/services/{{ s.slug }}/" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">{{ s.cardTitle }}</a></li>
           {% endfor %}
         </ul>
       </div>
@@ -25,12 +25,12 @@
       <div>
         <h3 class="text-white font-semibold text-[13px] uppercase tracking-[0.1em] mb-4">Company</h3>
         <ul class="space-y-2.5">
-          <li><a href="/" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">Home</a></li>
-          <li><a href="/about/" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">About</a></li>
-          <li><a href="/#testimonials" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">Testimonials</a></li>
-          <li><a href="/#service-area" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">Service Area</a></li>
-          <li><a href="/contact/" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">Contact</a></li>
-          <li><a href="/privacy/" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">Privacy Policy</a></li>
+          <li><a href="/" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">Home</a></li>
+          <li><a href="/about/" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">About</a></li>
+          <li><a href="/#testimonials" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">Testimonials</a></li>
+          <li><a href="/#service-area" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">Service Area</a></li>
+          <li><a href="/contact/" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">Contact</a></li>
+          <li><a href="/privacy/" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">Privacy Policy</a></li>
         </ul>
       </div>
 
@@ -38,17 +38,17 @@
       <div>
         <h3 class="text-white font-semibold text-[13px] uppercase tracking-[0.1em] mb-4">Get in touch</h3>
         <ul class="space-y-2.5">
-          <li><a href="{{ site.phoneTel }}" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">{{ site.phone }}</a></li>
-          <li><a href="mailto:{{ site.email }}" class="text-[#8DA0B4] hover:text-white text-[14px] transition-colors duration-150">{{ site.email }}</a></li>
-          <li><span class="text-[#8DA0B4] text-[14px]">{{ site.location }}</span></li>
+          <li><a href="{{ site.phoneTel }}" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">{{ site.phone }}</a></li>
+          <li><a href="mailto:{{ site.email }}" class="text-[#A9C2B4] hover:text-white text-[14px] transition-colors duration-150">{{ site.email }}</a></li>
+          <li><span class="text-[#A9C2B4] text-[14px]">{{ site.location }}</span></li>
         </ul>
       </div>
     </div>
 
     <!-- Bottom -->
     <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-      <p class="text-[#8DA0B4] text-[13px]">&copy; {{ "" | currentYear }} Port Credit Cleaning. All rights reserved.</p>
-      <p class="text-[#8DA0B4] text-[12px]">House Cleaning &middot; Condo Cleaning &middot; Deep Cleaning &mdash; Port Credit, ON</p>
+      <p class="text-[#A9C2B4] text-[13px]">&copy; {{ "" | currentYear }} Port Credit Cleaning. All rights reserved.</p>
+      <p class="text-[#A9C2B4] text-[12px]">House Cleaning &middot; Condo Cleaning &middot; Deep Cleaning &mdash; Port Credit, ON</p>
     </div>
   </div>
 </footer>

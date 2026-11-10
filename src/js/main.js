@@ -113,11 +113,11 @@ document.querySelectorAll("[data-form]").forEach((form) => {
       // Success state
       form.innerHTML = `
         <div class="text-center py-6">
-          <span class="inline-flex w-12 h-12 rounded-full bg-teal-tint items-center justify-center mb-4">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#5AA7A7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 11 9 16 18 7"/></svg>
+          <span class="inline-flex w-12 h-12 rounded-full bg-lime-tint items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#5E7D14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 11 9 16 18 7"/></svg>
           </span>
-          <h3 class="font-display font-bold text-navy text-[20px] mb-2">Thanks, ${firstName || "you"}!</h3>
-          <p class="text-[#4A5568] text-[15px] leading-relaxed">${
+          <h3 class="font-display font-bold text-forest text-[20px] mb-2">Thanks, ${firstName || "you"}!</h3>
+          <p class="text-[#4B5A50] text-[15px] leading-relaxed">${
             formType === "contact"
               ? "Your message is on its way. We'll get back to you the same day."
               : "Your quote request is in. We'll get back to you the same day at the contact details you provided."

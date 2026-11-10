@@ -3,22 +3,27 @@
 @source "../**/*.njk";
 @source "../js/**/*.js";
 
+/* Palette pulled from the printed flyer (Port Credit Cleaning Flyer v3) */
 @theme {
-  --color-navy: #17324D;
-  --color-navy-deep: #0F2536;
-  --color-navy-panel: #1C3A58;
-  --color-teal: #387373;
-  --color-teal-hover: #2F6363;
-  --color-teal-tint: #EAF3F3;
-  --color-sand: #E8DCCB;
-  --color-ink: #222222;
-  --color-surface: #F7F8FA;
+  --color-forest: #1F4A3A;        /* headline dark green, primary ink on light */
+  --color-forest-deep: #173829;   /* footer, pressed states */
+  --color-forest-panel: #285A46;
+  --color-olive: #5E7D14;         /* accent text / links (AA on white) */
+  --color-olive-bright: #7A9A1E;  /* headline accent ("One trusted cleaner") */
+  --color-lime: #B7D433;          /* primary buttons, check dots */
+  --color-lime-hover: #A5C226;
+  --color-lime-tint: #EEF3D9;     /* testimonial card */
+  --color-sage: #E4ECE6;          /* CTA card */
+  --color-amber: #F2C46B;         /* blob frame, highlight dots */
+  --color-amber-tint: #FBEBC8;
+  --color-ink: #222B26;
+  --color-surface: #F5F6F1;
 
-  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --shadow-card: 0 10px 30px rgba(23, 50, 77, 0.05);
-  --shadow-float: 0 16px 38px rgba(23, 50, 77, 0.14);
+  --shadow-card: 0 10px 30px rgba(31, 74, 58, 0.06);
+  --shadow-float: 0 16px 38px rgba(31, 74, 58, 0.14);
   --shadow-mobile-cta: 0 -6px 20px rgba(0, 0, 0, 0.18);
 }
 
@@ -30,14 +35,52 @@ h1, h2, h3 {
   text-wrap: pretty;
 }
 
-/* Diagonal stripe pattern for hero panel */
-.stripe-panel {
-  background-color: #1C3A58;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 18px,
-    #21405F 18px,
-    #21405F 19px
-  );
+/* Light hero with soft organic shapes, echoing the flyer */
+.hero-light {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--color-surface);
+}
+.hero-light::before,
+.hero-light::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-light::before {
+  width: 420px;
+  height: 380px;
+  top: -170px;
+  right: -120px;
+  background: var(--color-amber-tint);
+  border-radius: 58% 42% 55% 45% / 48% 60% 40% 52%;
+}
+.hero-light::after {
+  width: 300px;
+  height: 260px;
+  bottom: -150px;
+  left: -90px;
+  background: var(--color-lime-tint);
+  border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%;
+}
+
+/* Amber blob behind a blob-clipped photo (flyer kitchen image) */
+.blob-frame {
+  position: relative;
+  isolation: isolate;
+  padding: 5%;
+}
+.blob-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-amber);
+  border-radius: 52% 48% 58% 42% / 42% 56% 44% 58%;
+}
+.blob-img {
+  overflow: hidden;
+  border-radius: 46% 54% 44% 56% / 52% 42% 58% 48%;
 }

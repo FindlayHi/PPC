@@ -1,15 +1,13 @@
-<div class="bg-white rounded-[16px] p-7" style="box-shadow: 0 10px 30px rgba(23,50,77,.05);">
-  <div class="flex gap-0.5 mb-4" role="img" aria-label="5 out of 5 stars">
-    {% for i in range(0, testimonial.rating) %}
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F5A623" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.5l-3.8 2 .7-4.2-3-3 4.2-.6z"/></svg>
-    {% endfor %}
-  </div>
-  <p class="text-ink text-[15px] leading-relaxed mb-5">&ldquo;{{ testimonial.text }}&rdquo;</p>
-  <div class="flex items-center gap-3">
-    <div class="w-9 h-9 rounded-full bg-teal-tint flex items-center justify-center font-display font-bold text-teal text-[14px]">{{ testimonial.name[0] }}</div>
-    <div>
-      <p class="font-semibold text-navy text-[14px] leading-none mb-0.5">{{ testimonial.name }}</p>
-      <p class="text-[#6B7280] text-[13px]">{{ testimonial.location }}</p>
+<div class="bg-lime-tint rounded-[16px] p-7 flex flex-col">
+  <span class="font-display font-extrabold text-olive-bright text-[44px] leading-[0.6] h-6 mb-2 select-none" aria-hidden="true">&ldquo;</span>
+  <p class="text-ink text-[15px] leading-relaxed mb-5 flex-1">{{ testimonial.text }}</p>
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+    <p class="font-display font-bold text-forest text-[15px] leading-none">{{ testimonial.name }}</p>
+    <div class="flex gap-0.5" role="img" aria-label="{{ testimonial.rating }} out of 5 stars">
+      {% for i in range(0, testimonial.rating) %}
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="#E8A93A" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.5l-3.8 2 .7-4.2-3-3 4.2-.6z"/></svg>
+      {% endfor %}
     </div>
+    <p class="text-[#6B7A70] text-[13px] leading-none">{{ testimonial.location }}</p>
   </div>
 </div>
